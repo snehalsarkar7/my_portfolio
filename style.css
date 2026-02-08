@@ -115,8 +115,28 @@ nav {
 .footer-content {
     flex: 1; background: #1a1b20; display: flex; align-items: center; padding: 0 5%; gap: 50px;
 }
+/* Find this section in your CSS and REPLACE it */
+
 .footer-img {
-    width: 300px; height: 350px; position: relative; left: -100px; /* Pulls image over green bar */
+    /* 1. Allow the container to be wider for your banner */
+    width: 100%; 
+    max-width: 550px; /* Limits width so it doesn't get too huge */
+    
+    /* 2. Reset height so it doesn't force a tall box */
+    height: auto; 
+    
+    /* 3. Adjust positioning (remove the aggressive overlap) */
+    position: relative;
+    margin-bottom: 20px; 
+}
+
+/* Add this NEW rule specifically for the image inside the footer */
+.footer-img img {
+    width: 100%;
+    height: auto;      /* Keeps the original aspect ratio */
+    object-fit: contain; /* Ensures the whole banner is visible */
+    border-radius: 10px; /* Optional: makes it look smoother */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Adds a nice pop */
 }
 .footer-text h2 { font-size: 4rem; margin: 10px 0; }
 .small-green { color: #2ecc71; letter-spacing: 1px; }
