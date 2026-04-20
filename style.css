@@ -207,6 +207,7 @@ nav {
     margin-top: 30px;
     display: flex;
     gap: 20px;
+    justify-content: center;
 }
 
 .btn-primary {
@@ -282,33 +283,65 @@ nav {
     font-weight: 600;
 }
 
-/* ================= SKILLS BARS ================= */
+/* ================= SKILLS GAUGES ================= */
 .mb-30 {
     margin-bottom: 30px;
 }
 
-.skill-bar {
-    margin-bottom: 25px;
-}
-
-.skill-info {
+.skills-gauges {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-weight: 600;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.bar-bg {
+.gauge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gauge {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gauge svg {
+    position: absolute;
     width: 100%;
-    height: 10px;
-    background: #333;
-    border-radius: 5px;
+    height: 100%;
 }
 
-.bar-fill {
-    height: 100%;
-    background: #2ecc71;
-    border-radius: 5px;
+.gauge-percentage {
+    position: relative;
+    z-index: 10;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2ecc71;
+    text-align: center;
+}
+
+.gauge-text {
+    margin-top: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 120px;
+    margin-top: 10px;
 }
 
 /* ================= CONTACT LIST ================= */
@@ -333,6 +366,7 @@ nav {
     display: flex;
     height: 80vh;
     position: relative;
+    justify-content: center;
 }
 
 .footer-green {
@@ -346,9 +380,12 @@ nav {
     background: transparent;
     /* Was #1a1b20 */
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 0 5%;
     gap: 50px;
+    text-align: center;
 }
 
 /* Find this section in your CSS and REPLACE it */
