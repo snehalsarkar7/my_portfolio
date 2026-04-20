@@ -10,7 +10,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // 2. Vanta.js Animated Background Initialization
 // This waits for the HTML to load, then starts the animation
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     VANTA.NET({
         el: "#vanta-bg",
         mouseControls: true,
