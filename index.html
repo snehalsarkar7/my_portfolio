@@ -15,7 +15,12 @@
 
     <nav>
         <div class="logo">PORTFOLIO.</div>
-        <div class="nav-links">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
@@ -24,16 +29,27 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-text">
-            <p class="greeting">Hello</p>
-            <h1>I'M Snehal <br> <span class="name">Sarkar</span></h1>
-            <div class="role-box">
-                <span class="role-text">APP DEVELOPER</span>
-                <a href="#contact" class="arrow-btn">➜</a>
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="assets/skills-img.jpeg" alt="Profile" class="profile-pic">
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="assets/skills-img.jpeg" alt="Profile" class="profile-pic">
+
+            <p class="greeting">👋 Hi, I'm Snehal Sarkar</p>
+
+            <h1 class="hero-title">
+                Passionate <span class="highlight">Web, App & IoT Developer</span> <span class="highlight">Creating
+                    Innovative Solutions
+                </span>
+            </h1>
+
+            <p class="hero-subtitle">
+                With active experience in both app and web development, along with a passion for building everything
+                from dynamic portfolios to integrated IoT systems, I bring dedication and creativity to every project.
+            </p>
+
+            <div class="role-box">
+                <a href="#about" class="arrow-btn">Explore Portfolio ↓</a>
+            </div>
         </div>
     </header>
 
@@ -84,69 +100,72 @@
         </div>
     </section>
 
-    <section id="skills" class="split-section reverse-mobile">
-        <div class="text-container">
-            <h2 class="section-title">Skills</h2>
-            <p class="mb-30">I am a dedicated BCA student specializing in application design and Python development,
-                passionate about building efficient, data-driven solutions.</p>
+    <section id="skills" class="skills-section">
+        <div class="skills-inner">
+            <h2 class="section-title">My skills</h2>
+            <h3 class="section-subtitle">Technical Skills</h3>
+            <p class="mb-30">I am a dedicated BCA student specializing in application design and development.</p>
 
-            <div class="skills-gauges">
-                <div class="gauge-container">
-                    <div class="gauge">
-                        <svg width="120" height="120" viewBox="0 0 120 120">
-                            <circle cx="60" cy="60" r="50" fill="none" stroke="#333" stroke-width="8" />
-                            <circle cx="60" cy="60" r="50" fill="none" stroke="#2ecc71" stroke-width="8"
-                                stroke-dasharray="314" stroke-dashoffset="47.1" stroke-linecap="round"
-                                transform="rotate(-90 60 60)" />
-                        </svg>
-                        <div class="gauge-percentage">85%</div>
+            <div class="technical-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/python.svg" alt="Python" class="skill-svg">
                     </div>
-                    <div class="skill-name">Web and App Designer</div>
+                    <div class="skill-label">Python</div>
                 </div>
-
-                <div class="gauge-container">
-                    <div class="gauge">
-                        <svg width="120" height="120" viewBox="0 0 120 120">
-                            <circle cx="60" cy="60" r="50" fill="none" stroke="#333" stroke-width="8" />
-                            <circle cx="60" cy="60" r="50" fill="none" stroke="#2ecc71" stroke-width="8"
-                                stroke-dasharray="314" stroke-dashoffset="94.2" stroke-linecap="round"
-                                transform="rotate(-90 60 60)" />
-                        </svg>
-                        <div class="gauge-percentage">70%</div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/java.svg" alt="Java" class="skill-svg">
                     </div>
-                    <div class="skill-name">Public Speaking</div>
+                    <div class="skill-label">Java</div>
                 </div>
-
-                <div class="gauge-container">
-                    <div class="gauge">
-                        <svg width="120" height="120" viewBox="0 0 120 120">
-                            <circle cx="60" cy="60" r="50" fill="none" stroke="#333" stroke-width="8" />
-                            <circle cx="60" cy="60" r="50" fill="none" stroke="#2ecc71" stroke-width="8"
-                                stroke-dasharray="314" stroke-dashoffset="31.4" stroke-linecap="round"
-                                transform="rotate(-90 60 60)" />
-                        </svg>
-                        <div class="gauge-percentage">90%</div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/html.svg" alt="HTML" class="skill-svg">
                     </div>
-                    <div class="skill-name">Event Coordination</div>
+                    <div class="skill-label">HTML</div>
                 </div>
-
-                <div class="gauge-container">
-                    <div class="gauge">
-                        <svg width="120" height="120" viewBox="0 0 120 120">
-                            <circle cx="60" cy="60" r="50" fill="none" stroke="#333" stroke-width="8" />
-                            <circle cx="60" cy="60" r="50" fill="none" stroke="#2ecc71" stroke-width="8"
-                                stroke-dasharray="314" stroke-dashoffset="94.2" stroke-linecap="round"
-                                transform="rotate(-90 60 60)" />
-                        </svg>
-                        <div class="gauge-percentage">70%</div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/css.svg" alt="CSS" class="skill-svg">
                     </div>
-                    <div class="skill-name">Microsoft Office</div>
+                    <div class="skill-label">CSS</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/js.svg" alt="JavaScript" class="skill-svg">
+                    </div>
+                    <div class="skill-label">JavaScript</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/microsoft.svg" alt="Microsoft Office" class="skill-svg">
+                    </div>
+                    <div class="skill-label">Microsoft Office</div>
                 </div>
             </div>
-        </div>
 
-        <div class="image-container right-accent">
-            <img src="assets/user.png" alt="Skills">
+            <h3 class="soft-title">Soft Skills</h3>
+            <div class="soft-skills-panel">
+                <div class="soft-skills-list">
+                    <div class="soft-skill-item">
+                        <div class="soft-icon">🎤</div>
+                        <div class="soft-label">Public Speaking</div>
+                    </div>
+                    <div class="soft-skill-item">
+                        <div class="soft-icon">🤝</div>
+                        <div class="soft-label">Public Relations</div>
+                    </div>
+                    <div class="soft-skill-item">
+                        <div class="soft-icon">💬</div>
+                        <div class="soft-label">Communication</div>
+                    </div>
+                    <div class="soft-skill-item">
+                        <div class="soft-icon">📋</div>
+                        <div class="soft-label">Event Coordination</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -195,6 +214,35 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script>
+        // Hamburger menu toggle with body scroll lock
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        function openMenu() {
+            hamburger.classList.add('active');
+            navLinks.classList.add('active');
+            document.body.classList.add('menu-open');
+            hamburger.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+
+        hamburger.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) closeMenu();
+            else openMenu();
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => closeMenu());
+        });
+    </script>
     <script src="script.js"></script>
 
 </body>
