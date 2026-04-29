@@ -729,52 +729,73 @@ nav {
         padding: 12px 28px;
         font-size: 1rem;
     }
-    /* Mobile nav overlay: fixed, covers hero, and slides down smoothly */
+    /* Water Splash Mobile Nav Animation */
+    nav {
+        padding: 15px 5%;
+        justify-content: space-between;
+    }
+
     .hamburger {
         display: flex;
+        z-index: 10000;
     }
 
     .nav-links {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         background: #1a1b20;
         display: flex;
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         justify-content: center;
-        gap: 0;
-        padding: 40px 0;
+        gap: 20px;
+        padding: 0;
         z-index: 9999;
-        transform: translateY(-100%);
-        transition: transform 0.35s ease, opacity 0.25s ease;
-        opacity: 0;
+        -webkit-clip-path: circle(0px at calc(100% - 40px) 40px);
+        clip-path: circle(0px at calc(100% - 40px) 40px);
+        transition: -webkit-clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1), clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        max-height: none;
+        overflow: hidden;
         pointer-events: none;
     }
 
     .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
+        -webkit-clip-path: circle(150% at calc(100% - 40px) 40px);
+        clip-path: circle(150% at calc(100% - 40px) 40px);
         pointer-events: auto;
     }
 
     .nav-links a {
-        padding: 18px 6%;
         color: #e6e6e6;
         text-decoration: none;
+        font-size: 2rem;
+        font-weight: 600;
         margin-left: 0;
         display: block;
-        transition: background 0.2s, color 0.2s;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        font-size: 1.1rem;
-        text-align: left;
+        border-bottom: none;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: color 0.3s, transform 0.3s;
     }
 
+    .nav-links.active a {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s;
+    }
+
+    .nav-links.active a:nth-child(1) { transition-delay: 0.2s; }
+    .nav-links.active a:nth-child(2) { transition-delay: 0.3s; }
+    .nav-links.active a:nth-child(3) { transition-delay: 0.4s; }
+    .nav-links.active a:nth-child(4) { transition-delay: 0.5s; }
+
     .nav-links a:hover {
-        background: rgba(46, 204, 113, 0.06);
         color: #2ecc71;
+        transform: scale(1.1);
+        background: transparent;
     }
 
     /* Prevent body scroll while menu open */
@@ -814,48 +835,7 @@ nav {
         margin-bottom: 5px;
     }
 
-    nav {
-        padding: 15px 5%;
-        justify-content: space-between;
-    }
 
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: #1a1b20;
-        flex-direction: column;
-        gap: 0;
-        padding: 20px 0;
-        border-top: 1px solid #2ecc71;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-
-    .nav-links.active {
-        max-height: 300px;
-    }
-
-    .nav-links a {
-        padding: 15px 5%;
-        color: #ccc;
-        text-decoration: none;
-        margin-left: 0;
-        display: block;
-        transition: 0.3s;
-        border-bottom: 1px solid #333;
-    }
-
-    .nav-links a:hover {
-        background: rgba(46, 204, 113, 0.1);
-        color: #2ecc71;
-    }
 
     .project-grid {
         grid-template-columns: 1fr;
