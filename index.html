@@ -28,10 +28,11 @@
         </div>
     </nav>
 
+    <main>
     <header class="hero">
         <div class="hero-content">
             <div class="hero-image">
-                <img src="assets/skills-img.jpeg" alt="Profile" class="profile-pic">
+                <img src="assets/hero-img.jpeg" alt="Profile" class="profile-pic">
             </div>
 
             <p class="greeting">👋 Hi, I'm Snehal Sarkar</p>
@@ -197,6 +198,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="footer-split">
         <div class="footer-content">
@@ -214,35 +216,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-    <script>
-        // Hamburger menu toggle with body scroll lock
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('nav-links');
-
-        function openMenu() {
-            hamburger.classList.add('active');
-            navLinks.classList.add('active');
-            document.body.classList.add('menu-open');
-            hamburger.setAttribute('aria-expanded', 'true');
-        }
-
-        function closeMenu() {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            hamburger.setAttribute('aria-expanded', 'false');
-        }
-
-        hamburger.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) closeMenu();
-            else openMenu();
-        });
-
-        // Close menu when a link is clicked
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => closeMenu());
-        });
-    </script>
     <script src="script.js"></script>
 
 </body>
