@@ -178,6 +178,7 @@ nav {
 .hero-title .highlight {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     padding: 0;
     border-radius: 0;
