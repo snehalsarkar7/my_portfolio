@@ -1,7 +1,21 @@
+:root {
+    --primary: #818cf8;       /* Indigo */
+    --primary-dark: #c084fc;  /* Purple */
+    --secondary: #2dd4bf;     /* Teal */
+    --success: #f8fafc;       /* White for buttons */
+    --orange: #94a3b8;        /* Slate */
+    
+    --bg-dark: #09090b;
+    --text-main: #f8fafc;
+    --text-muted: #a1a1aa;
+    
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
 #vanta-bg {
     position: fixed !important;
     z-index: -1 !important;
-    /* Critical: Forces it behind everything */
     top: 0;
     left: 0;
     width: 100vw;
@@ -21,14 +35,17 @@ html {
 
 body {
     background-color: transparent !important;
-    /* Critical: Removes solid background */
-    color: white;
+    color: var(--text-main);
     overflow-x: hidden;
+    line-height: 1.6;
+}
+
+p {
+    color: var(--text-muted);
 }
 
 section {
     padding: 80px 10%;
-    /* Consistent Spacing */
     min-height: 80vh;
 }
 
@@ -92,10 +109,26 @@ nav {
     text-decoration: none;
     margin-left: 30px;
     transition: 0.3s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #2ecc71;
+    color: var(--primary);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .hero {
@@ -134,20 +167,22 @@ nav {
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    line-height: 1.3;
+    font-size: 4rem;
+    line-height: 1.2;
     font-weight: 800;
-    color: white;
+    color: var(--text-main);
     margin: 0;
+    letter-spacing: -1px;
 }
 
 .hero-title .highlight {
-    background: transparent;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     padding: 0;
     border-radius: 0;
     display: inline-block;
     margin: 0 4px;
-    color: #2ecc71;
     font-weight: 900;
 }
 
@@ -160,11 +195,12 @@ nav {
 }
 
 .greeting {
-    color: #2ecc71;
-    font-size: 1.3rem;
-    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 500;
     margin: 0;
-    letter-spacing: 0.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .hero-image {
@@ -180,22 +216,24 @@ nav {
 }
 
 .role-box .arrow-btn {
-    background: #2ecc71;
-    color: #1a1b20;
-    padding: 15px 35px;
+    background: var(--text-main);
+    color: var(--bg-dark);
+    padding: 16px 40px;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 600;
     border: none;
     cursor: pointer;
-    transition: 0.3s ease;
-    border-radius: 4px;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.05);
 }
 
 .role-box .arrow-btn:hover {
-    background: #27ae60;
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    background: var(--primary);
+    color: var(--text-main);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(129, 140, 248, 0.4);
 }
 
 /* Button Styles */
@@ -245,37 +283,51 @@ nav {
 }
 
 .skill-card {
-    background: #151618;
-    border: 1px solid rgba(46, 204, 113, 0.06);
-    border-radius: 12px;
-    padding: 28px 16px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease;
+    cursor: default;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
 }
 
 .skill-icon {
-
-    .skill-svg {
-        width: 56px;
-        height: 56px;
-        object-fit: contain;
-        display: block;
-    }
-
     width: 72px;
     height: 72px;
-    border-radius: 10px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #2ecc71;
-    font-weight: 800;
-    font-size: 1.2rem;
     margin-bottom: 12px;
+    transition: transform 0.3s ease;
+}
+
+.skill-svg {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.1);
+}
+
+.skill-card:hover .skill-svg {
+    transform: rotate(5deg) scale(1.1);
 }
 
 .skill-label {
@@ -284,7 +336,7 @@ nav {
 }
 
 .soft-title {
-    color: #2ecc71;
+    color: var(--primary);
     margin-top: 36px;
     margin-bottom: 16px;
 }
@@ -309,11 +361,22 @@ nav {
     flex-direction: column;
     align-items: center;
     width: 160px;
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+
+.soft-skill-item:hover {
+    transform: translateY(-5px) scale(1.05);
 }
 
 .soft-icon {
     font-size: 34px;
     margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.soft-skill-item:hover .soft-icon {
+    transform: rotate(10deg) scale(1.2);
 }
 
 .soft-label {
@@ -357,7 +420,7 @@ nav {
     display: block;
     height: 4px;
     width: 100%;
-    background: #2ecc71;
+    background: var(--primary);
 }
 
 /* Geometric Image Accents (The Green "L" shapes) */
@@ -381,32 +444,22 @@ nav {
     object-fit: cover;
     object-position: top;
     border-radius: 30px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.image-container:hover img {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.2);
 }
 
 /* "L" shape on the Left (for About & Contact) */
 .left-accent::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 150px;
-    height: 150px;
-    border-left: 20px solid #2ecc71;
-    border-bottom: 20px solid #2ecc71;
-    z-index: 1;
+    display: none;
 }
 
 /* "L" shape on the Right (for Skills) */
 .right-accent::before {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 150px;
-    height: 150px;
-    border-right: 20px solid #2ecc71;
-    border-bottom: 20px solid #2ecc71;
-    z-index: 1;
+    display: none;
 }
 
 /* Buttons */
@@ -418,25 +471,39 @@ nav {
 }
 
 .btn-primary {
-    background: #2ecc71;
-    color: #1a1b20;
-    padding: 12px 30px;
+    background: var(--text-main);
+    color: var(--bg-dark);
+    padding: 14px 36px;
     text-decoration: none;
     font-weight: 600;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(129, 140, 248, 0.4);
+    background: var(--primary);
+    color: #fff;
 }
 
 .btn-outline {
-    border: 2px solid #2ecc71;
-    color: white;
-    padding: 12px 30px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 14px 36px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
 .btn-outline:hover {
-    background: #2ecc71;
-    color: #1a1b20;
+    background: var(--glass-border);
+    color: var(--text-main);
+    transform: translateY(-3px);
 }
 
 /* ================= PROJECTS GRID ================= */
@@ -452,42 +519,80 @@ nav {
 }
 
 .project-card {
-    background: white;
-    padding-bottom: 10px;
-    display: block;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: flex-end;
+    aspect-ratio: 4/3;
     text-decoration: none;
     color: inherit;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s ease, border-color 0.4s ease;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary);
 }
 
 .p-img {
-    height: 250px;
-    background: #ddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
-/* Placeholder bg */
+.p-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.project-card:hover .p-img img {
+    transform: scale(1.08);
+}
+
+.project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(9,9,11,0.95) 0%, rgba(9,9,11,0.2) 50%, transparent 100%);
+    z-index: 2;
+    transition: opacity 0.4s ease;
+}
+
 .p-info {
-    padding: 20px;
-    color: #1a1b20;
+    position: relative;
+    z-index: 3;
+    padding: 30px;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+}
+
+.project-card:hover .p-info {
+    transform: translateY(0);
 }
 
 .p-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    text-transform: uppercase;
+    color: var(--text-main);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    text-transform: none;
+    letter-spacing: -0.5px;
 }
 
 .p-info span {
-    color: #2ecc71;
-    font-size: 0.9rem;
-    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
 }
 
 /* ================= SKILLS ================= */
@@ -507,7 +612,7 @@ nav {
 }
 
 .c-label {
-    color: #2ecc71;
+    color: var(--primary);
     width: 100px;
     font-weight: 600;
 }
@@ -522,7 +627,7 @@ nav {
 
 .footer-green {
     width: 25%;
-    background: #2ecc71;
+    background: var(--primary);
     height: 100%;
 }
 
@@ -574,7 +679,7 @@ nav {
 }
 
 .small-green {
-    color: #2ecc71;
+    color: var(--primary);
     letter-spacing: 1px;
 }
 
@@ -793,7 +898,7 @@ nav {
     .nav-links.active a:nth-child(4) { transition-delay: 0.5s; }
 
     .nav-links a:hover {
-        color: #2ecc71;
+        color: var(--primary);
         transform: scale(1.1);
         background: transparent;
     }
@@ -848,20 +953,21 @@ nav {
 
 
 .profile-pic {
-    /* 1. Ensure it's a square. Width MUST equal Height. */
-    width: 400px;
-    height: 400px;
-
-    /* 2. Make it round */
+    width: 380px;
+    height: 380px;
     border-radius: 50%;
-
-    /* 3. This crops the image so it fills the circle without stretching */
     object-fit: cover;
+    border: 2px solid var(--glass-border);
+    padding: 12px;
+    background: var(--glass-bg);
+    transition: transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
 
-    /* Optional: Add a cool border to make it pop */
-    border: 5px solid #2ecc71;
-    /* Optional: Add a shadow for depth */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+.profile-pic:hover {
+    transform: scale(1.02);
+    border-color: var(--primary);
+    box-shadow: 0 15px 40px rgba(129, 140, 248, 0.2);
 }
 
 /* RESPONSIVE TWEAK: Make it smaller on phones */
@@ -870,4 +976,20 @@ nav {
         width: 300px;
         height: 300px;
     }
+}
+
+/* ================= SCROLL ANIMATIONS ================= */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card.is-visible {
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease, box-shadow 0.3s ease;
 }
