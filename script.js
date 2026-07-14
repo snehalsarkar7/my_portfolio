@@ -750,17 +750,32 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Touch/Click Canvas to jump
+    // Touch/Click Canvas to jump (Desktop)
     canvas.addEventListener("click", () => {
         if (gameActive) {
             dragon.jump();
         }
     });
     
-    canvas.addEventListener("touchstart", (e) => {
-        if (gameActive) {
-            e.preventDefault(); // prevent double triggers or zooms
-            dragon.jump();
-        }
-    }, { passive: false });
+    // Mobile-only: Tap anywhere on the screen to jump
+    const isMobileDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    if (isMobileDevice) {
+        window.addEventListener("touchstart", (e) => {
+            // Ignore touches on links, buttons, inputs, menu, or details
+            if (e.target.closest('a, button, input, textarea, kbd, #hamburger, .nav-links')) {
+                return;
+            }
+            if (gameActive) {
+                e.preventDefault(); // prevent zooming/scrolling during active play
+                dragon.jump();
+            }
+        }, { passive: false });
+    } else {
+        canvas.addEventListener("touchstart", (e) => {
+            if (gameActive) {
+                e.preventDefault();
+                dragon.jump();
+            }
+        }, { passive: false });
+    }
 });
