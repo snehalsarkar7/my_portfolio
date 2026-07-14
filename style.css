@@ -1342,6 +1342,32 @@ nav {
     .ml-15 {
         margin-left: 0;
     }
+
+    /* Compact overlay on small screens to prevent overflow */
+    .overlay-content {
+        padding: 10px;
+    }
+
+    .overlay-icon {
+        font-size: 2rem;
+        margin-bottom: 4px;
+    }
+
+    .overlay-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+        letter-spacing: 0.5px;
+    }
+
+    .overlay-instruction {
+        font-size: 0.75rem;
+        margin-bottom: 12px;
+    }
+
+    .overlay-content .btn-primary {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+    }
 }
 
 /* Timeline Completion Banner */
