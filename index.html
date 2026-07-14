@@ -24,6 +24,7 @@
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
+            <a href="#timeline-journey">Journey</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -164,6 +165,59 @@
                     <div class="soft-skill-item">
                         <div class="soft-icon">📋</div>
                         <div class="soft-label">Event Coordination</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline-journey" class="timeline-section">
+        <h2 class="section-title">Timeline Journey</h2>
+        <p class="section-subtitle">Play to unlock my milestones!</p>
+        <p class="section-desc mb-30">Press Spacebar, Up Arrow, or Tap/Click the game canvas to jump over the obstacles. As you progress, you will unlock chronological milestones of my journey.</p>
+        
+        <div class="journey-container">
+            <!-- Game Panel -->
+            <div class="game-panel glass-card">
+                <div class="game-header">
+                    <div class="game-title">🐲 NEON DRAGON RUNNER</div>
+                    <div class="game-scores">
+                        <span class="score-label">Score: <strong id="game-score">0</strong>m</span>
+                        <span class="score-label ml-15">High: <strong id="game-highscore">0</strong>m</span>
+                    </div>
+                </div>
+                
+                <div class="canvas-container" id="canvas-container">
+                    <canvas id="dragon-game" width="650" height="250"></canvas>
+                    <div class="game-overlay animate-fade-in" id="game-overlay">
+                        <div class="overlay-content">
+                            <div class="overlay-icon">🐲</div>
+                            <h3>NEON DRAGON JOURNEY</h3>
+                            <p class="overlay-instruction">Press SPACEBAR or CLICK canvas to Jump</p>
+                            <button id="start-btn" class="btn-primary">Start Journey</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-controls">
+                    <span class="controls-hint">Controls: <kbd>Space</kbd> / <kbd>▲</kbd> / <kbd>Click</kbd></span>
+                    <button id="mute-btn" class="btn-mute" aria-label="Toggle Sound">🔊 Sound On</button>
+                </div>
+            </div>
+
+            <!-- Timeline Panel -->
+            <div class="timeline-panel glass-card">
+                <h3 class="panel-title">Completed Milestones</h3>
+                <div id="timeline-complete-banner" class="timeline-complete-banner hidden">
+                    <span class="banner-icon">🏆</span>
+                    <p class="banner-text">Timeline Complete. Level: Unlocked. Still running to conquer every goal ahead.</p>
+                </div>
+                <div class="timeline-track-wrapper">
+                    <div class="timeline-line">
+                        <div class="timeline-progress-bar" id="timeline-progress-bar"></div>
+                    </div>
+                    <div class="timeline-nodes" id="timeline-nodes">
+                        <!-- Populated by JS -->
                     </div>
                 </div>
             </div>
