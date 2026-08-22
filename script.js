@@ -761,8 +761,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const isMobileDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     if (isMobileDevice) {
         window.addEventListener("touchstart", (e) => {
-            // Ignore touches on links, buttons, inputs, menu, or details
-            if (e.target.closest('a, button, input, textarea, kbd, #hamburger, .nav-links')) {
+            // Ignore touches on links, buttons, inputs, menu, details, or chatbot
+            if (e.target.closest('a, button, input, textarea, kbd, #hamburger, .nav-links, .chatbot-container')) {
                 return;
             }
             if (gameActive) {
@@ -778,4 +778,442 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }, { passive: false });
     }
-});
+});
+
+// =======================================================
+// SNEHAL SARKAR AI CHATBOT ENGINE & CONTROLLER
+// =======================================================
+document.addEventListener("DOMContentLoaded", function() {
+    const chatbotContainer = document.getElementById("chatbot-container");
+    const chatFab = document.getElementById("chat-fab");
+    const chatWindow = document.getElementById("chat-window");
+    const chatCloseBtn = document.getElementById("chat-close-btn");
+    const chatClearBtn = document.getElementById("chat-clear-btn");
+    const chatMessages = document.getElementById("chat-messages");
+    const chatForm = document.getElementById("chat-input-form");
+    const chatInput = document.getElementById("chat-input");
+    const chatTooltip = document.getElementById("chat-tooltip");
+    const suggestionChips = document.querySelectorAll(".suggestion-chip");
+
+    if (!chatFab || !chatWindow || !chatMessages || !chatInput) return;
+
+    let isChatOpen = false;
+    let isTyping = false;
+
+    // Chat audio feedback
+    let chatAudioCtx = null;
+    function playChatChime() {
+        try {
+            if (!chatAudioCtx) {
+                chatAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (chatAudioCtx.state === "suspended") {
+                chatAudioCtx.resume();
+            }
+            const now = chatAudioCtx.currentTime;
+            const osc = chatAudioCtx.createOscillator();
+            const gain = chatAudioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(chatAudioCtx.destination);
+
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(587.33, now); // D5
+            osc.frequency.exponentialRampToValueAtTime(880.00, now + 0.12); // A5
+            gain.gain.setValueAtTime(0.08, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+
+            osc.start(now);
+            osc.stop(now + 0.18);
+        } catch (e) {
+            // Audio error fallback
+        }
+    }
+
+    // Auto-hide tooltip after 6 seconds
+    setTimeout(() => {
+        if (chatTooltip && !isChatOpen) {
+            chatTooltip.classList.add("hidden");
+        }
+    }, 6000);
+
+    // Toggle Chat Window
+    function toggleChat(open = null) {
+        isChatOpen = open !== null ? open : !isChatOpen;
+        if (isChatOpen) {
+            chatWindow.classList.remove("hidden");
+            chatFab.classList.add("active");
+            chatFab.setAttribute("aria-expanded", "true");
+            if (chatTooltip) chatTooltip.classList.add("hidden");
+            setTimeout(() => chatInput.focus(), 300);
+        } else {
+            chatWindow.classList.add("hidden");
+            chatFab.classList.remove("active");
+            chatFab.setAttribute("aria-expanded", "false");
+        }
+    }
+
+    chatFab.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleChat();
+    });
+
+    if (chatCloseBtn) {
+        chatCloseBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleChat(false);
+        });
+    }
+
+    // Format current timestamp
+    function getFormattedTime() {
+        const now = new Date();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        return `${hours}:${minutes} ${ampm}`;
+    }
+
+    // Append Message to UI
+    function appendMessage(sender, htmlContent) {
+        const msgDiv = document.createElement("div");
+        msgDiv.className = `chat-msg ${sender}`;
+        
+        msgDiv.innerHTML = `
+            <div class="msg-bubble">${htmlContent}</div>
+            <span class="msg-time">${getFormattedTime()}</span>
+        `;
+
+        chatMessages.appendChild(msgDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Show Typing Indicator
+    function showTypingIndicator() {
+        if (isTyping) return;
+        isTyping = true;
+        const typingDiv = document.createElement("div");
+        typingDiv.className = "chat-msg bot typing-msg";
+        typingDiv.id = "typing-indicator";
+        typingDiv.innerHTML = `
+            <div class="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        `;
+        chatMessages.appendChild(typingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Remove Typing Indicator
+    function removeTypingIndicator() {
+        isTyping = false;
+        const indicator = document.getElementById("typing-indicator");
+        if (indicator) indicator.remove();
+    }
+
+    // Comprehensive Knowledge Base & Response Engine
+    const knowledgeBase = {
+        about: {
+            text: `👋 <strong>Hi, I'm Snehal Sarkar's AI Assistant!</strong><br><br>
+            Snehal is a detail-oriented technology student based in <span class="bot-highlight">Kolkata, West Bengal</span>, currently pursuing a <strong>Bachelor of Computer Applications (BCA)</strong> at the <strong>University of Engineering and Management (UEM), Jaipur</strong>.<br><br>
+            Maintaining a strong <span class="bot-tag">7.80 CGPA</span>, he is highly adaptable, creative, and actively applies a diverse technical toolkit to drive efficiency and innovation in competitive environments.`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="#about" class="bot-btn">Read Full Bio ↓</a>
+                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">📄 View Resume</a>
+                </div>
+            `
+        },
+        skills: {
+            text: `🛠️ <strong>Snehal's Technical & Professional Stack:</strong><br><br>
+            <strong>Robust Development:</strong><br>
+            <span class="bot-tag">Java</span> <span class="bot-tag">Python</span> <span class="bot-tag">HTML5</span> <span class="bot-tag">CSS3</span> <span class="bot-tag">JavaScript</span> <span class="bot-tag">React</span> <span class="bot-tag">Flutter</span> <span class="bot-tag">MongoDB</span><br><br>
+            <strong>Specialized & Hardware Skills:</strong><br>
+            <span class="bot-tag">Ethereum & Solidity</span> <span class="bot-tag">IoT & ESP32</span> <span class="bot-tag">Environmental Sensors (BME280, MQ-135)</span><br><br>
+            <strong>Creative & Digital Skills:</strong><br>
+            <span class="bot-tag">Multimedia Editing</span> <span class="bot-tag">Microsoft Office Suite</span> <span class="bot-tag">AI Text-to-Video Tools</span>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="#skills" class="bot-btn">View Skills Section ↓</a>
+                </div>
+            `
+        },
+        projects: {
+            text: `🚀 <strong>Featured Projects & Engineering Work:</strong><br>
+            <ul class="bot-list">
+                <li><strong>Hyperlocal IoT Weather System:</strong> Real-time environmental monitoring utilizing ESP32 microcontrollers, BME280 & MQ-135 sensors, and API integration for advanced conference research.</li>
+                <li><strong>Transparent Project Funding:</strong> Web3 crowdfunding platform on Ethereum using Solidity smart contracts for trustless, transparent community funding.</li>
+                <li><strong>Digital Twin Smart Contract:</strong> Blockchain-backed decentralized tracking and digital twin asset validation.</li>
+            </ul>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="https://github.com/snehalsarkar7/HyperLocal" target="_blank" class="bot-btn">🛰️ Weather IoT Repo</a>
+                    <a href="https://github.com/snehalsarkar7/transparentFunding.sol" target="_blank" class="bot-btn teal">⛓️ Blockchain Repo</a>
+                    <a href="#projects" class="bot-btn">View All Projects ↓</a>
+                </div>
+            `
+        },
+        blockchain: {
+            text: `⛓️ <strong>Web3 & Blockchain Innovations:</strong><br><br>
+            Snehal developed a <strong>Transparent Project Funding Platform</strong> using <span class="bot-tag">Ethereum</span> and <span class="bot-tag">Solidity</span>.<br><br>
+            This system enables secure, decentralized, and trustless crowdfunding through smart contracts, ensuring absolute transparency in fund disbursement and project milestone accountability.`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="https://github.com/snehalsarkar7/transparentFunding.sol" target="_blank" class="bot-btn teal">View Solidity Code ↗</a>
+                </div>
+            `
+        },
+        iot: {
+            text: `🛰️ <strong>IoT & Hardware Engineering:</strong><br><br>
+            Snehal engineered a <strong>Hyperlocal IoT Weather Monitoring System</strong> featuring real-time telemetry updates and API integration.<br><br>
+            <strong>Hardware integration highlights:</strong><br>
+            <ul class="bot-list">
+                <li>Configuring <span class="bot-highlight">ESP32 microcontrollers</span>.</li>
+                <li>Deploying environmental sensors (<span class="bot-tag">BME280</span> for pressure/humidity/temp and <span class="bot-tag">MQ-135</span> for air quality).</li>
+                <li>Conducted hands-on experimental research for international conferences.</li>
+            </ul>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="https://github.com/snehalsarkar7/HyperLocal" target="_blank" class="bot-btn">Check IoT GitHub ↗</a>
+                </div>
+            `
+        },
+        experience: {
+            text: `💼 <strong>Professional Practical Experience:</strong><br><br>
+            <strong>Drone Technology Trainee at Dronnester</strong><br>
+            <span class="bot-tag">September 2024 – March 2025</span><br><br>
+            Applied software development, drone systems programming, and technical problem-solving skills in a fast-paced professional environment.`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">Download CV / Experience PDF</a>
+                </div>
+            `
+        },
+        education: {
+            text: `🎓 <strong>Academic Qualifications & Education:</strong><br>
+            <ul class="bot-list">
+                <li><strong>Bachelor of Computer Applications (BCA):</strong> University of Engineering and Management (UEM), Jaipur. Currently maintaining a strong <span class="bot-highlight">7.80 CGPA</span>.</li>
+                <li><strong>High School (ISC):</strong> Salt Lake Point School (Graduated 2024).</li>
+                <li><strong>Secondary School (ICSE):</strong> St. Paul's KG & Day School (Graduated 2022).</li>
+            </ul>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="#timeline-journey" class="bot-btn">View Journey Milestones ↓</a>
+                </div>
+            `
+        },
+        leadership: {
+            text: `🏆 <strong>Executive Leadership & Community Engagement:</strong><br>
+            <ul class="bot-list">
+                <li><strong>Vice President, Atrang Cultural Club:</strong> Guiding major campus cultural initiatives and festivals since January 2026.</li>
+                <li><strong>UEM Jaipur Toastmasters Club:</strong> Active speaker refining communication, public speaking, and PR skills.</li>
+                <li><strong>Event Organizer & Coordinator:</strong> Spearheaded the <em>"Pixel Ki Paheli 2.0"</em> TechFest competition and managed the campus-wide <em>UEM Franchise Football League</em>.</li>
+                <li><strong>HACKSEC Club Member:</strong> Active member of the official Cybersecurity & Ethical Hacking club.</li>
+            </ul>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="#skills" class="bot-btn teal">See Soft Skills & Leadership</a>
+                </div>
+            `
+        },
+        personal: {
+            text: `🌟 <strong>Personal Mindset & Background:</strong><br><br>
+            Beyond coding and leadership, Snehal is defined by a continuous learning mindset and strong personal values:<br>
+            <ul class="bot-list">
+                <li><strong>Languages:</strong> Fluent in <span class="bot-tag">English</span>, <span class="bot-tag">Bengali</span>, and <span class="bot-tag">Hindi</span>.</li>
+                <li><strong>Interests:</strong> Mentoring his younger brother with school assignments, exploring emerging AI text-to-video tools, and troubleshooting hardware setups.</li>
+                <li><strong>Philosophy:</strong> Blending rigorous technical pursuit with community leadership and creative curiosity.</li>
+            </ul>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="#contact" class="bot-btn">Get in Touch ↓</a>
+                </div>
+            `
+        },
+        contact: {
+            text: `📬 <strong>Contact & Connect with Snehal:</strong><br><br>
+            📧 <strong>Email:</strong> <a href="mailto:snehalsarkar94@gmail.com" style="color:var(--secondary); text-decoration:underline;">snehalsarkar94@gmail.com</a><br>
+            📱 <strong>Phone:</strong> +91 8902515964<br>
+            📍 <strong>Location:</strong> Kolkata, West Bengal (UEM Jaipur)<br>
+            💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/snehal-sarkar-7773b7321/" target="_blank" style="color:var(--primary); text-decoration:underline;">Snehal Sarkar</a><br>
+            🐙 <strong>GitHub:</strong> <a href="https://github.com/snehalsarkar7" target="_blank" style="color:var(--primary); text-decoration:underline;">snehalsarkar7</a>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="mailto:snehalsarkar94@gmail.com" class="bot-btn">✉️ Send Email</a>
+                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">📄 Download Resume</a>
+                </div>
+            `
+        }
+    };
+
+    // Query matcher with weighted scoring & intent classifier
+    function generateBotResponse(userInput) {
+        const query = userInput.toLowerCase().trim();
+
+        // 1. Greetings
+        if (/^(hi|hello|hey|greetings|hola|namaste|sup|yo|good (morning|afternoon|evening))\b/.test(query) || query === 'hi' || query === 'hello') {
+            return `👋 <strong>Hello! Nice to meet you!</strong><br><br>
+            I am Snehal Sarkar's interactive AI portfolio assistant. I can give you detailed information regarding Snehal's:
+            <ul class="bot-list">
+                <li>🎓 Education & CGPA at UEM Jaipur</li>
+                <li>🛠️ Technical Skills & Full Stack Web/App stack</li>
+                <li>🚀 IoT, Web3 & Blockchain Projects</li>
+                <li>💼 Trainee Experience at Dronnester</li>
+                <li>🏆 Leadership Roles (Atrang VP, Toastmasters, HackSec)</li>
+                <li>📬 Contact & Hiring Information</li>
+            </ul>
+            What would you like to explore?`;
+        }
+
+        // 2. Who is Snehal / About / Intro
+        if (query.includes("who is") || query.includes("who are you") || query.includes("about snehal") || query.includes("introduce") || query.includes("tell me about") || query.includes("bio") || query.includes("overview") || query.includes("profile")) {
+            return knowledgeBase.about.text + knowledgeBase.about.actions;
+        }
+
+        // 3. Tech Stack / Skills / Languages
+        if (query.includes("skill") || query.includes("stack") || query.includes("tech") || query.includes("programming") || query.includes("language") || query.includes("python") || query.includes("java") || query.includes("react") || query.includes("flutter") || query.includes("javascript") || query.includes("mongodb") || query.includes("frontend") || query.includes("backend") || query.includes("tools")) {
+            return knowledgeBase.skills.text + knowledgeBase.skills.actions;
+        }
+
+        // 4. Projects (General)
+        if ((query.includes("project") || query.includes("built") || query.includes("portfolio") || query.includes("work")) && !query.includes("blockchain") && !query.includes("iot") && !query.includes("weather")) {
+            return knowledgeBase.projects.text + knowledgeBase.projects.actions;
+        }
+
+        // 5. Blockchain / Web3 / Solidity / Ethereum
+        if (query.includes("blockchain") || query.includes("web3") || query.includes("solidity") || query.includes("ethereum") || query.includes("smart contract") || query.includes("crypto") || query.includes("crowdfunding") || query.includes("transparent funding") || query.includes("digital twin")) {
+            return knowledgeBase.blockchain.text + knowledgeBase.blockchain.actions;
+        }
+
+        // 6. IoT / Weather / ESP32 / Hardware
+        if (query.includes("iot") || query.includes("weather") || query.includes("esp32") || query.includes("hardware") || query.includes("sensor") || query.includes("bme280") || query.includes("mq-135") || query.includes("microcontroller") || query.includes("hyperlocal") || query.includes("arduino")) {
+            return knowledgeBase.iot.text + knowledgeBase.iot.actions;
+        }
+
+        // 7. Experience / Internship / Dronnester / Job
+        if (query.includes("experience") || query.includes("internship") || query.includes("dronnester") || query.includes("trainee") || query.includes("job") || query.includes("career") || query.includes("work experience") || query.includes("drone")) {
+            return knowledgeBase.experience.text + knowledgeBase.experience.actions;
+        }
+
+        // 8. Education / CGPA / College / Degree / School
+        if (query.includes("education") || query.includes("college") || query.includes("university") || query.includes("uem") || query.includes("jaipur") || query.includes("bca") || query.includes("cgpa") || query.includes("gpa") || query.includes("marks") || query.includes("grade") || query.includes("degree") || query.includes("school") || query.includes("isc") || query.includes("icse")) {
+            return knowledgeBase.education.text + knowledgeBase.education.actions;
+        }
+
+        // 9. Leadership / Clubs / Atrang / Toastmasters / HackSec / Events
+        if (query.includes("leadership") || query.includes("club") || query.includes("atrang") || query.includes("vice president") || query.includes("vp") || query.includes("toastmaster") || query.includes("hacksec") || query.includes("public speaking") || query.includes("event") || query.includes("pixel ki paheli") || query.includes("football") || query.includes("extracurricular") || query.includes("hackathon")) {
+            return knowledgeBase.leadership.text + knowledgeBase.leadership.actions;
+        }
+
+        // 10. Contact / Hire / Resume / Email / Phone / Location / Socials
+        if (query.includes("contact") || query.includes("hire") || query.includes("email") || query.includes("mail") || query.includes("phone") || query.includes("call") || query.includes("resume") || query.includes("cv") || query.includes("linkedin") || query.includes("github") || query.includes("reach") || query.includes("kolkata") || query.includes("address") || query.includes("location")) {
+            return knowledgeBase.contact.text + knowledgeBase.contact.actions;
+        }
+
+        // 11. Languages spoken / Personal / Hobbies
+        if (query.includes("fluent") || query.includes("languages") || query.includes("speak") || query.includes("hobby") || query.includes("hobbies") || query.includes("personal") || query.includes("brother") || query.includes("family") || query.includes("ai video") || query.includes("interest")) {
+            return knowledgeBase.personal.text + knowledgeBase.personal.actions;
+        }
+
+        // 12. Dragon Game Easter Egg
+        if (query.includes("game") || query.includes("dragon") || query.includes("neon dragon") || query.includes("jump") || query.includes("play")) {
+            return `🐲 <strong>Neon Dragon Runner:</strong><br><br>
+            Snehal built an interactive retro canvas game right here on this portfolio! As you jump over obstacles and gain distance, you unlock real chronological milestones from Snehal's life and career.
+            <div class="bot-actions">
+                <a href="#timeline-journey" class="bot-btn">🎮 Play Dragon Journey ↓</a>
+            </div>`;
+        }
+
+        // 13. Smart Fallback with context guidance
+        return `🤖 <strong>I'd love to help you with that!</strong><br><br>
+        Here are the most popular topics you can ask me about Snehal:
+        <ul class="bot-list">
+            <li><strong>"What is Snehal's tech stack?"</strong> — Web, Mobile, IoT, Blockchain</li>
+            <li><strong>"Tell me about Snehal's projects"</strong> — IoT Weather Station & Solidity Crowdfunding</li>
+            <li><strong>"What is Snehal's education & CGPA?"</strong> — BCA at UEM Jaipur (7.80 CGPA)</li>
+            <li><strong>"Tell me about Dronnester"</strong> — Professional Trainee experience</li>
+            <li><strong>"What leadership roles does he hold?"</strong> — Atrang VP, Toastmasters, HackSec</li>
+            <li><strong>"How can I contact or hire Snehal?"</strong> — Email, phone, resume & socials</li>
+        </ul>
+        <div class="bot-actions">
+            <a href="mailto:snehalsarkar94@gmail.com" class="bot-btn">Contact Snehal ✉️</a>
+            <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">Download CV 📄</a>
+        </div>`;
+    }
+
+    // Process and send user message
+    function handleUserSubmission(text) {
+        if (!text || !text.trim() || isTyping) return;
+        const cleanedText = text.trim();
+
+        // 1. Render User Message
+        appendMessage("user", cleanedText);
+        chatInput.value = "";
+
+        // 2. Show Typing animation with realistic micro-delay
+        showTypingIndicator();
+
+        const delay = Math.min(650, 250 + cleanedText.length * 10);
+        setTimeout(() => {
+            removeTypingIndicator();
+            const botResponse = generateBotResponse(cleanedText);
+            appendMessage("bot", botResponse);
+            playChatChime();
+        }, delay);
+    }
+
+    // Handle Form Submit
+    chatForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        handleUserSubmission(chatInput.value);
+    });
+
+    // Handle Quick Suggestion Chip Clicks
+    suggestionChips.forEach(chip => {
+        chip.addEventListener("click", function(e) {
+            e.preventDefault();
+            const query = this.getAttribute("data-query");
+            if (!isChatOpen) toggleChat(true);
+            handleUserSubmission(query);
+        });
+    });
+
+    // Delegate click on dynamic action links in messages
+    chatMessages.addEventListener("click", function(e) {
+        const targetLink = e.target.closest("a");
+        if (targetLink && targetLink.getAttribute("href") && targetLink.getAttribute("href").startsWith("#")) {
+            // Smooth scroll to section and optionally minimize on mobile
+            const targetId = targetLink.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+                if (window.innerWidth <= 600) {
+                    toggleChat(false);
+                }
+            }
+        }
+    });
+
+    // Clear Conversation
+    function resetChat() {
+        chatMessages.innerHTML = "";
+        appendMessage("bot", `👋 <strong>Hi there! I'm Snehal's AI Assistant.</strong><br><br>
+        I'm here to answer any questions about Snehal's technical skills, full-stack projects, BCA at UEM Jaipur, Dronnester internship, leadership roles, and contact info.<br><br>
+        <em>Click any suggestion below or type your question!</em>`);
+    }
+
+    if (chatClearBtn) {
+        chatClearBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            resetChat();
+        });
+    }
+
+    // Initialize with welcome greeting
+    resetChat();
+});
+

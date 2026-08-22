@@ -268,6 +268,74 @@
         </div>
     </footer>
 
+    <!-- ================= CHATBOT WIDGET ================= -->
+    <div class="chatbot-container" id="chatbot-container">
+        <!-- Chatbot Window -->
+        <div class="chat-window hidden" id="chat-window" role="dialog" aria-label="Snehal Sarkar AI Assistant" aria-modal="false">
+            <!-- Window Header -->
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="chat-avatar">
+                        <img src="assets/about-img.jpeg" alt="Snehal Avatar" class="chat-avatar-img">
+                        <span class="online-badge" title="Online"></span>
+                    </div>
+                    <div class="chat-header-text">
+                        <div class="chat-title">Snehal's AI Assistant</div>
+                        <div class="chat-status"><span class="status-dot"></span> Online • Ask me anything</div>
+                    </div>
+                </div>
+                <div class="chat-header-actions">
+                    <button class="chat-action-btn" id="chat-clear-btn" title="Clear conversation" aria-label="Clear chat">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+                    </button>
+                    <button class="chat-action-btn" id="chat-close-btn" title="Close chat" aria-label="Close chat">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="chat-messages" id="chat-messages">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Suggestion Quick Chips -->
+            <div class="chat-suggestions" id="chat-suggestions">
+                <button class="suggestion-chip" data-query="Who is Snehal Sarkar?">👋 About Snehal</button>
+                <button class="suggestion-chip" data-query="What is Snehal's tech stack and skills?">🛠️ Tech Stack</button>
+                <button class="suggestion-chip" data-query="Tell me about Snehal's key projects">🚀 Key Projects</button>
+                <button class="suggestion-chip" data-query="What is Snehal's education and CGPA?">🎓 Education</button>
+                <button class="suggestion-chip" data-query="Tell me about Snehal's experience at Dronnester">💼 Experience</button>
+                <button class="suggestion-chip" data-query="What leadership roles and clubs is Snehal part of?">🏆 Leadership & Clubs</button>
+                <button class="suggestion-chip" data-query="How can I contact or hire Snehal?">📬 Contact & Hire</button>
+            </div>
+
+            <!-- Input Bar -->
+            <form class="chat-input-form" id="chat-input-form">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Ask about skills, projects, college..." autocomplete="off" aria-label="Type your message">
+                <button type="submit" class="chat-send-btn" id="chat-send-btn" aria-label="Send message">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </form>
+        </div>
+
+        <!-- Floating Chat Toggle Trigger Button -->
+        <div class="chat-trigger-wrapper">
+            <div class="chat-tooltip" id="chat-tooltip">
+                <span>💬 Ask anything about me!</span>
+            </div>
+            <button class="chat-fab" id="chat-fab" aria-label="Open AI chat widget" aria-expanded="false">
+                <div class="fab-icon-chat">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="fab-icon-close">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+                <span class="fab-pulse"></span>
+            </button>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
     <script src="script.js"></script>
