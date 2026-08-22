@@ -618,70 +618,289 @@ nav {
     font-weight: 600;
 }
 
-/* ================= FOOTER / THANK YOU ================= */
-.footer-split {
-    display: flex;
-    height: 80vh;
+/* ================= SITE FOOTER ================= */
+.site-footer {
     position: relative;
-    justify-content: center;
+    background: rgba(9, 9, 11, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--glass-border);
+    margin-top: 80px;
+    padding: 70px 10% 40px 10%;
+    z-index: 10;
 }
 
-.footer-green {
-    width: 25%;
-    background: var(--primary);
-    height: 100%;
+.footer-glow-line {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+    opacity: 0.8;
 }
 
-.footer-content {
-    flex: 1;
-    background: transparent;
-    /* Was #1a1b20 */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    gap: 50px;
+}
+
+.footer-top-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--text-main);
+}
+
+.footer-logo span {
+    color: var(--primary);
+}
+
+.footer-tagline {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    max-width: 440px;
+}
+
+.footer-cta-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.footer-cta-group .btn-primary,
+.footer-cta-group .btn-outline {
+    padding: 10px 26px;
+    font-size: 0.9rem;
+}
+
+/* Social Buttons Section */
+.footer-social-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+}
+
+.social-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-top: -8px;
+}
+
+.social-buttons-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 5%;
-    gap: 50px;
-    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
-/* Find this section in your CSS and REPLACE it */
-
-.footer-img {
-    /* 1. Allow the container to be wider for your banner */
-    width: 100%;
-    max-width: 550px;
-    /* Limits width so it doesn't get too huge */
-
-    /* 2. Reset height so it doesn't force a tall box */
-    height: auto;
-
-    /* 3. Adjust positioning (remove the aggressive overlap) */
-    position: relative;
-    margin-bottom: 20px;
+.social-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Add this NEW rule specifically for the image inside the footer */
-.footer-img img {
-    width: 100%;
-    height: auto;
-    /* Keeps the original aspect ratio */
-    object-fit: contain;
-    /* Ensures the whole banner is visible */
-    border-radius: 10px;
-    /* Optional: makes it look smoother */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    /* Adds a nice pop */
+.social-platform {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: 0.3px;
 }
 
-.footer-text h2 {
-    font-size: 4rem;
-    margin: 10px 0;
+.social-handle {
+    font-size: 0.78rem;
+    color: var(--text-muted);
 }
 
-.small-green {
+.social-arrow {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Individual Social Platform Themes */
+.social-btn.linkedin-btn:hover {
+    background: rgba(10, 102, 194, 0.12);
+    border-color: #0a66c2;
+    transform: translateX(6px) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(10, 102, 194, 0.25);
+}
+
+.social-btn.linkedin-btn:hover .social-icon {
+    background: #0a66c2;
+    color: #ffffff;
+    transform: scale(1.08) rotate(3deg);
+}
+
+.social-btn.linkedin-btn:hover .social-arrow {
+    color: #0a66c2;
+    transform: translate(3px, -3px);
+}
+
+.social-btn.insta-btn:hover {
+    background: rgba(225, 48, 108, 0.12);
+    border-color: #e1306c;
+    transform: translateX(6px) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(225, 48, 108, 0.25);
+}
+
+.social-btn.insta-btn:hover .social-icon {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: #ffffff;
+    border-color: transparent;
+    transform: scale(1.08) rotate(3deg);
+}
+
+.social-btn.insta-btn:hover .social-arrow {
+    color: #e1306c;
+    transform: translate(3px, -3px);
+}
+
+.social-btn.github-btn:hover {
+    background: rgba(45, 212, 191, 0.12);
+    border-color: var(--secondary);
+    transform: translateX(6px) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(45, 212, 191, 0.25);
+}
+
+.social-btn.github-btn:hover .social-icon {
+    background: var(--secondary);
+    color: #09090b;
+    border-color: var(--secondary);
+    transform: scale(1.08) rotate(-3deg);
+}
+
+.social-btn.github-btn:hover .social-arrow {
+    color: var(--secondary);
+    transform: translate(3px, -3px);
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+    border-top: 1px solid var(--glass-border);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
     color: var(--primary);
-    letter-spacing: 1px;
+}
+
+.footer-copyright {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* Footer Mobile Responsive */
+@media (max-width: 900px) {
+    .site-footer {
+        padding: 50px 5% 30px 5%;
+        margin-top: 50px;
+    }
+
+    .footer-top-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-brand {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-cta-group {
+        justify-content: center;
+    }
+
+    .footer-social-section {
+        align-items: stretch;
+    }
+
+    .social-title,
+    .social-subtitle {
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
 }
 
 /* ================= MOBILE RESPONSIVE ================= */
@@ -913,18 +1132,6 @@ nav {
 
     .section-title {
         font-size: 1.8rem;
-    }
-
-    .footer-split {
-        height: auto;
-    }
-
-    .footer-text h2 {
-        font-size: 2rem;
-    }
-
-    .footer-text p {
-        font-size: 0.9rem;
     }
 
     .contact-list {

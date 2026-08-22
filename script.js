@@ -79,7 +79,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 document.addEventListener("DOMContentLoaded", function() {
-    const animateElements = document.querySelectorAll('.project-card, .skill-card, .soft-skill-item, .text-container, .image-container, .section-title, .contact-list .c-item');
+    const animateElements = document.querySelectorAll('.project-card, .skill-card, .soft-skill-item, .text-container, .image-container, .section-title, .contact-list .c-item, .social-btn, .footer-brand');
     
     animateElements.forEach((el, index) => {
         el.classList.add('animate-on-scroll');
