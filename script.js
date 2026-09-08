@@ -86,6 +86,127 @@ document.addEventListener("DOMContentLoaded", function() {
         el.style.transitionDelay = `${(index % 5) * 0.1}s`;
         observer.observe(el);
     });
+
+    // ================= HORIZONTAL PROJECT CAROUSEL & FILTERING =================
+    const filterButtons = document.querySelectorAll('.project-filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectsTrack = document.getElementById('projects-grid');
+    const scrollLeftBtn = document.getElementById('project-scroll-left');
+    const scrollRightBtn = document.getElementById('project-scroll-right');
+    const progressBar = document.getElementById('project-progress-bar');
+
+    // Update Scroll Progress Bar and Nav Button States
+    function updateScrollProgress() {
+        if (!projectsTrack) return;
+        const maxScroll = projectsTrack.scrollWidth - projectsTrack.clientWidth;
+        if (maxScroll <= 0) {
+            if (progressBar) progressBar.style.width = '100%';
+            if (scrollLeftBtn) scrollLeftBtn.disabled = true;
+            if (scrollRightBtn) scrollRightBtn.disabled = true;
+            return;
+        }
+
+        const currentScroll = projectsTrack.scrollLeft;
+        const scrollPercent = Math.max(15, Math.min(100, ((currentScroll + projectsTrack.clientWidth) / projectsTrack.scrollWidth) * 100));
+        
+        if (progressBar) {
+            progressBar.style.width = `${scrollPercent}%`;
+        }
+
+        if (scrollLeftBtn) {
+            scrollLeftBtn.disabled = currentScroll <= 5;
+        }
+        if (scrollRightBtn) {
+            scrollRightBtn.disabled = currentScroll >= maxScroll - 5;
+        }
+    }
+
+    if (projectsTrack) {
+        projectsTrack.addEventListener('scroll', updateScrollProgress, { passive: true });
+        window.addEventListener('resize', updateScrollProgress, { passive: true });
+        setTimeout(updateScrollProgress, 200);
+
+        // Arrow Button Navigation
+        if (scrollLeftBtn) {
+            scrollLeftBtn.addEventListener('click', () => {
+                const cardWidth = projectsTrack.querySelector('.project-card:not(.is-hidden)')?.offsetWidth || 360;
+                projectsTrack.scrollBy({ left: -(cardWidth + 28), behavior: 'smooth' });
+            });
+        }
+
+        if (scrollRightBtn) {
+            scrollRightBtn.addEventListener('click', () => {
+                const cardWidth = projectsTrack.querySelector('.project-card:not(.is-hidden)')?.offsetWidth || 360;
+                projectsTrack.scrollBy({ left: (cardWidth + 28), behavior: 'smooth' });
+            });
+        }
+
+        // Mouse Drag-to-Scroll on Desktop
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        projectsTrack.addEventListener('mousedown', (e) => {
+            // Ignore drag if clicking directly on a link or button
+            if (e.target.closest('a') || e.target.closest('button')) return;
+            isDown = true;
+            startX = e.pageX - projectsTrack.offsetLeft;
+            scrollLeft = projectsTrack.scrollLeft;
+        });
+
+        projectsTrack.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        projectsTrack.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        projectsTrack.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - projectsTrack.offsetLeft;
+            const walk = (x - startX) * 1.5; // Scroll speed multiplier
+            projectsTrack.scrollLeft = scrollLeft - walk;
+        });
+    }
+
+    // Category Filter Buttons
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filterValue = btn.getAttribute('data-filter');
+
+            // Update active state on buttons
+            filterButtons.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+
+            // Filter project cards with smooth animation
+            projectCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (filterValue === 'all' || cardCategory === filterValue) {
+                    card.classList.remove('is-hidden');
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.classList.add('is-hidden');
+                }
+            });
+
+            // Reset scroll to start after filtering
+            if (projectsTrack) {
+                projectsTrack.scrollTo({ left: 0, behavior: 'smooth' });
+                setTimeout(updateScrollProgress, 100);
+            }
+        });
+    });
 });
 
 // ================= TIMELINE JOURNEY & DRAGON GAME ENGINE =================
@@ -943,27 +1064,67 @@ document.addEventListener("DOMContentLoaded", function() {
             `
         },
         projects: {
-            text: `🚀 <strong>Featured Projects & Engineering Work:</strong><br>
+            text: `🚀 <strong>All 8 Public Projects & Engineering Work:</strong><br>
             <ul class="bot-list">
-                <li><strong>Hyperlocal IoT Weather System:</strong> Real-time environmental monitoring utilizing ESP32 microcontrollers, BME280 & MQ-135 sensors, and API integration for advanced conference research.</li>
-                <li><strong>Transparent Project Funding:</strong> Web3 crowdfunding platform on Ethereum using Solidity smart contracts for trustless, transparent community funding.</li>
-                <li><strong>Digital Twin Smart Contract:</strong> Blockchain-backed decentralized tracking and digital twin asset validation.</li>
+                <li><strong>Agentic AI Platform:</strong> Multi-agent autonomous workflow orchestration & intelligent tool calling framework.</li>
+                <li><strong>HyperLocal Weather Station:</strong> IoT telemetry system on ESP32 with BME280 & MQ-135 sensors.</li>
+                <li><strong>NFT Transparent Project Funding:</strong> Ethereum & Solidity smart contract escrow for decentralized crowdfunding.</li>
+                <li><strong>Digital Twin Smart Contract:</strong> On-chain physical asset telemetry synchronization written in Move.</li>
+                <li><strong>NFT Royalty Monetization:</strong> Clarity smart contract on Bitcoin Stacks L2 for creator secondary revenue.</li>
+                <li><strong>Web-Fetch Data Engine:</strong> Asynchronous high-throughput web scraping & API parsing utility in JavaScript.</li>
+                <li><strong>UrbanNest Lifestyle Store:</strong> Modern e-commerce web platform for curated home living, furniture, and interior decor.</li>
+                <li><strong>Cyber Developer Portfolio:</strong> Interactive portfolio featuring 3D dynamics, retro canvas game & this AI assistant!</li>
             </ul>`,
             actions: `
                 <div class="bot-actions">
-                    <a href="https://github.com/snehalsarkar7/HyperLocal" target="_blank" class="bot-btn">🛰️ Weather IoT Repo</a>
-                    <a href="https://github.com/snehalsarkar7/transparentFunding.sol" target="_blank" class="bot-btn teal">⛓️ Blockchain Repo</a>
-                    <a href="#projects" class="bot-btn">View All Projects ↓</a>
+                    <a href="#projects" class="bot-btn">Explore Projects Section ↓</a>
+                    <a href="https://github.com/snehalsarkar7" target="_blank" class="bot-btn teal">🐙 GitHub Profile ↗</a>
+                </div>
+            `
+        },
+        ai: {
+            text: `🤖 <strong>Agentic AI & Machine Intelligence:</strong><br><br>
+            Snehal built an <strong>Agentic AI Platform</strong> focusing on autonomous agent execution and reasoning.<br><br>
+            <strong>Key Features:</strong><br>
+            <ul class="bot-list">
+                <li>Multi-agent workflow orchestration and modular task delegation.</li>
+                <li>Intelligent tool integration and automated decision-making.</li>
+                <li>Real-time prompt pipelining and structured response generation.</li>
+            </ul>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="https://github.com/snehalsarkar7/Agentic_Ai" target="_blank" class="bot-btn teal">View Agentic AI Repo ↗</a>
                 </div>
             `
         },
         blockchain: {
-            text: `⛓️ <strong>Web3 & Blockchain Innovations:</strong><br><br>
-            Snehal developed a <strong>Transparent Project Funding Platform</strong> using <span class="bot-tag">Ethereum</span> and <span class="bot-tag">Solidity</span>.<br><br>
-            This system enables secure, decentralized, and trustless crowdfunding through smart contracts, ensuring absolute transparency in fund disbursement and project milestone accountability.`,
+            text: `⛓️ <strong>Web3 & Blockchain Smart Contracts:</strong><br><br>
+            Snehal has engineered smart contracts across multiple blockchains and languages:<br>
+            <ul class="bot-list">
+                <li><strong>NFT Transparent Project Funding (Solidity):</strong> Trustless Ethereum escrow crowdfunding with milestone accountability.</li>
+                <li><strong>NFT Royalty System (Clarity / Stacks):</strong> Automated secondary market creator royalty enforcement on Bitcoin L2.</li>
+                <li><strong>Digital Twin Smart Contract (Move):</strong> Immutable on-chain synchronization for physical IoT asset states.</li>
+            </ul>`,
             actions: `
                 <div class="bot-actions">
-                    <a href="https://github.com/snehalsarkar7/transparentFunding.sol" target="_blank" class="bot-btn teal">View Solidity Code ↗</a>
+                    <a href="https://github.com/snehalsarkar7/transparentFunding.sol" target="_blank" class="bot-btn teal">Solidity Funding ↗</a>
+                    <a href="https://github.com/snehalsarkar7/NFT-Royalty-System" target="_blank" class="bot-btn">Clarity Royalty ↗</a>
+                    <a href="https://github.com/snehalsarkar7/DigitalTwin" target="_blank" class="bot-btn teal">Move Contract ↗</a>
+                </div>
+            `
+        },
+        web: {
+            text: `🌐 <strong>Web Applications & E-Commerce Platforms:</strong><br><br>
+            Snehal's web development projects include:<br>
+            <ul class="bot-list">
+                <li><strong>UrbanNest Home Lifestyle Store:</strong> Modern e-commerce web platform for curated home living essentials, minimalist furniture, lighting, and interior decor.</li>
+                <li><strong>Web-Fetch Data Engine:</strong> High-performance asynchronous HTTP harvesting, scraping, and real-time schema parsing.</li>
+                <li><strong>Cyber Portfolio:</strong> Custom JavaScript design system, 3D Vanta background, retro game engine, and AI assistant.</li>
+            </ul>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="https://github.com/snehalsarkar7/UrbanNest" target="_blank" class="bot-btn teal">UrbanNest Store Repo ↗</a>
+                    <a href="https://github.com/snehalsarkar7/Web-Fetch" target="_blank" class="bot-btn">Web-Fetch Repo ↗</a>
                 </div>
             `
         },
@@ -1061,7 +1222,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <ul class="bot-list">
                 <li>🎓 Education & CGPA at UEM Jaipur</li>
                 <li>🛠️ Technical Skills & Full Stack Web/App stack</li>
-                <li>🚀 IoT, Web3 & Blockchain Projects</li>
+                <li>🚀 8 Featured Projects (AI Agents, Web3, IoT, E-Commerce, Web Apps)</li>
                 <li>💼 Trainee Experience at Dronnester</li>
                 <li>🏆 Leadership Roles (Atrang VP, Toastmasters, HackSec)</li>
                 <li>📬 Contact & Hiring Information</li>
@@ -1079,13 +1240,13 @@ document.addEventListener("DOMContentLoaded", function() {
             return knowledgeBase.skills.text + knowledgeBase.skills.actions;
         }
 
-        // 4. Projects (General)
-        if ((query.includes("project") || query.includes("built") || query.includes("portfolio") || query.includes("work")) && !query.includes("blockchain") && !query.includes("iot") && !query.includes("weather")) {
-            return knowledgeBase.projects.text + knowledgeBase.projects.actions;
+        // 4. AI & Agents (Agentic AI)
+        if (query.includes("agentic") || query.includes("agent") || query.includes("ai platform") || query.includes("llm") || (query.includes("ai") && !query.includes("email") && !query.includes("atrang"))) {
+            return knowledgeBase.ai.text + knowledgeBase.ai.actions;
         }
 
-        // 5. Blockchain / Web3 / Solidity / Ethereum
-        if (query.includes("blockchain") || query.includes("web3") || query.includes("solidity") || query.includes("ethereum") || query.includes("smart contract") || query.includes("crypto") || query.includes("crowdfunding") || query.includes("transparent funding") || query.includes("digital twin")) {
+        // 5. Blockchain / Web3 / Solidity / Ethereum / Clarity / Move / NFT Royalty
+        if (query.includes("blockchain") || query.includes("web3") || query.includes("solidity") || query.includes("ethereum") || query.includes("smart contract") || query.includes("crypto") || query.includes("crowdfunding") || query.includes("transparent funding") || query.includes("digital twin") || query.includes("royalty") || query.includes("clarity") || query.includes("stacks") || query.includes("move") || query.includes("nft")) {
             return knowledgeBase.blockchain.text + knowledgeBase.blockchain.actions;
         }
 
@@ -1094,27 +1255,37 @@ document.addEventListener("DOMContentLoaded", function() {
             return knowledgeBase.iot.text + knowledgeBase.iot.actions;
         }
 
-        // 7. Experience / Internship / Dronnester / Job
+        // 7. Web Apps / Scraping / UrbanNest / E-Commerce / Store / Web-Fetch
+        if (query.includes("urbannest") || query.includes("store") || query.includes("ecommerce") || query.includes("e-commerce") || query.includes("lifestyle") || query.includes("furniture") || query.includes("decor") || query.includes("web-fetch") || query.includes("fetch") || query.includes("scraping") || query.includes("data engine")) {
+            return knowledgeBase.web.text + knowledgeBase.web.actions;
+        }
+
+        // 8. Projects (General)
+        if (query.includes("project") || query.includes("built") || query.includes("portfolio") || query.includes("work") || query.includes("github repos")) {
+            return knowledgeBase.projects.text + knowledgeBase.projects.actions;
+        }
+
+        // 9. Experience / Internship / Dronnester / Job
         if (query.includes("experience") || query.includes("internship") || query.includes("dronnester") || query.includes("trainee") || query.includes("job") || query.includes("career") || query.includes("work experience") || query.includes("drone")) {
             return knowledgeBase.experience.text + knowledgeBase.experience.actions;
         }
 
-        // 8. Education / CGPA / College / Degree / School
+        // 10. Education / CGPA / College / Degree / School
         if (query.includes("education") || query.includes("college") || query.includes("university") || query.includes("uem") || query.includes("jaipur") || query.includes("bca") || query.includes("cgpa") || query.includes("gpa") || query.includes("marks") || query.includes("grade") || query.includes("degree") || query.includes("school") || query.includes("isc") || query.includes("icse")) {
             return knowledgeBase.education.text + knowledgeBase.education.actions;
         }
 
-        // 9. Leadership / Clubs / Atrang / Toastmasters / HackSec / Events
+        // 11. Leadership / Clubs / Atrang / Toastmasters / HackSec / Events
         if (query.includes("leadership") || query.includes("club") || query.includes("atrang") || query.includes("vice president") || query.includes("vp") || query.includes("toastmaster") || query.includes("hacksec") || query.includes("public speaking") || query.includes("event") || query.includes("pixel ki paheli") || query.includes("football") || query.includes("extracurricular") || query.includes("hackathon")) {
             return knowledgeBase.leadership.text + knowledgeBase.leadership.actions;
         }
 
-        // 10. Contact / Hire / Resume / Email / Phone / Location / Socials
+        // 12. Contact / Hire / Resume / Email / Phone / Location / Socials
         if (query.includes("contact") || query.includes("hire") || query.includes("email") || query.includes("mail") || query.includes("phone") || query.includes("call") || query.includes("resume") || query.includes("cv") || query.includes("linkedin") || query.includes("github") || query.includes("reach") || query.includes("kolkata") || query.includes("address") || query.includes("location")) {
             return knowledgeBase.contact.text + knowledgeBase.contact.actions;
         }
 
-        // 11. Languages spoken / Personal / Hobbies
+        // 13. Languages spoken / Personal / Hobbies
         if (query.includes("fluent") || query.includes("languages") || query.includes("speak") || query.includes("hobby") || query.includes("hobbies") || query.includes("personal") || query.includes("brother") || query.includes("family") || query.includes("ai video") || query.includes("interest")) {
             return knowledgeBase.personal.text + knowledgeBase.personal.actions;
         }

@@ -74,31 +74,222 @@
     </section>
 
     <section id="projects" class="center-section">
-        <h2 class="section-title">Recents Project</h2>
-        <div class="project-grid">
-            <a href="https://github.com/snehalsarkar7/HyperLocal" target="_blank" class="project-card">
-                <div class="p-img"><img src="assets/project1.jpeg" alt="Weather Station"></div>
-                <div class="p-info">
-                    <h3>HYPERLOCAL WEATHER</h3>
-                    <span>IoT, BME280, MQ-135</span>
+        <div class="projects-header-wrapper">
+            <div class="projects-title-row">
+                <div>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle-text">Explore my software engineering, AI agent architectures, Web3 smart contracts, IoT systems, and e-commerce platforms.</p>
                 </div>
-            </a>
+                <!-- Carousel Nav Buttons -->
+                <div class="carousel-nav-controls">
+                    <button class="carousel-nav-btn" id="project-scroll-left" aria-label="Scroll projects left" type="button">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <button class="carousel-nav-btn" id="project-scroll-right" aria-label="Scroll projects right" type="button">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Interactive Category Filter Tabs -->
+            <div class="project-filters" role="tablist" aria-label="Project Category Filters">
+                <button class="project-filter-btn active" data-filter="all" type="button" role="tab" aria-selected="true">
+                    <span>All Projects</span>
+                    <span class="filter-count">8</span>
+                </button>
+                <button class="project-filter-btn" data-filter="ai" type="button" role="tab" aria-selected="false">
+                    <span>AI & Agents</span>
+                    <span class="filter-count">1</span>
+                </button>
+                <button class="project-filter-btn" data-filter="web3" type="button" role="tab" aria-selected="false">
+                    <span>Web3 & Blockchain</span>
+                    <span class="filter-count">3</span>
+                </button>
+                <button class="project-filter-btn" data-filter="iot" type="button" role="tab" aria-selected="false">
+                    <span>IoT & Hardware</span>
+                    <span class="filter-count">1</span>
+                </button>
+                <button class="project-filter-btn" data-filter="web" type="button" role="tab" aria-selected="false">
+                    <span>Web & Apps</span>
+                    <span class="filter-count">3</span>
+                </button>
+            </div>
+        </div>
 
-            <a href="https://github.com/snehalsarkar7/transparentFunding.sol" target="_blank" class="project-card">
-                <div class="p-img"><img src="assets/project2.png" alt="TRANSPARENT FUNDING"></div>
-                <div class="p-info">
-                    <h3>NFT TRANSPARENT FUNDING</h3>
-                    <span>BLOCKCHAIN NETWORK</span>
+        <!-- Horizontal Scrollable Panel -->
+        <div class="project-carousel-wrapper">
+            <div class="project-grid horizontal-track" id="projects-grid">
+                <!-- 1. Agentic AI -->
+                <div class="project-card" data-category="ai">
+                    <div class="p-img"><img src="assets/project4.jpg" alt="Agentic AI Platform" loading="lazy"></div>
+                    <div class="p-badge ai-badge">AI & Agents</div>
+                    <div class="p-info">
+                        <div class="p-meta">
+                            <span class="p-tag">AI Workflows</span>
+                            <span class="p-tag">JavaScript</span>
+                        </div>
+                        <h3>AGENTIC AI PLATFORM</h3>
+                        <p class="p-summary">Autonomous agent framework orchestrating multi-step AI workflows, real-time reasoning, and intelligent tool execution.</p>
+                        <div class="p-actions">
+                            <a href="https://github.com/snehalsarkar7/Agentic_Ai" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View Agentic AI Repository">
+                                <span>GitHub Code</span>
+                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </a>
 
-            <a href="https://github.com/snehalsarkar7/DigitalTwin" target="_blank" class="project-card">
-                <div class="p-img"><img src="assets/project3.png" alt="SMART CONTRACT"></div>
-                <div class="p-info">
-                    <h3>Digital Twin Smart Contract</h3>
-                    <span>WEB 3</span>
+                <!-- 2. HyperLocal IoT Weather -->
+                <div class="project-card" data-category="iot">
+                    <div class="p-img"><img src="assets/project1.jpeg" alt="HyperLocal Weather Station" loading="lazy"></div>
+                    <div class="p-badge iot-badge">IoT & Hardware</div>
+                    <div class="p-info">
+                        <div class="p-meta">
+                            <span class="p-tag">ESP32 / Dart</span>
+                            <span class="p-tag">BME280 & MQ-135</span>
+                        </div>
+                        <h3>HYPERLOCAL WEATHER STATION</h3>
+                        <p class="p-summary">Real-time environmental telemetry node measuring microclimate temperature, barometric pressure, humidity, and air quality.</p>
+                        <div class="p-actions">
+                            <a href="https://github.com/snehalsarkar7/HyperLocal" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View HyperLocal Repository">
+                                <span>GitHub Code</span>
+                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </a>
+
+                <!-- 3. NFT Transparent Funding -->
+                <div class="project-card" data-category="web3">
+                    <div class="p-img"><img src="assets/project2.png" alt="NFT Transparent Funding" loading="lazy"></div>
+                    <div class="p-badge web3-badge">Web3 / Solidity</div>
+                    <div class="p-info">
+                        <div class="p-meta">
+                            <span class="p-tag">Solidity</span>
+                            <span class="p-tag">Ethereum Smart Escrow</span>
+                        </div>
+                        <h3>NFT TRANSPARENT FUNDING</h3>
+                        <p class="p-summary">Decentralized Web3 crowdfunding protocol ensuring milestone-based escrow disbursement and tamper-proof ledger validation.</p>
+                        <div class="p-actions">
+                            <a href="https://github.com/snehalsarkar7/transparentFunding.sol" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View Transparent Funding Repository">
+                                <span>GitHub Code</span>
+                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Digital Twin Smart Contract -->
+                <div class="project-card" data-category="web3">
+                    <div class="p-img"><img src="assets/project3.png" alt="Digital Twin Smart Contract" loading="lazy"></div>
+                    <div class="p-badge web3-badge">Move / Blockchain</div>
+                    <div class="p-info">
+                        <div class="p-meta">
+                            <span class="p-tag">Move Language</span>
+                            <span class="p-tag">Digital Twins</span>
+                        </div>
+                        <h3>DIGITAL TWIN SMART CONTRACT</h3>
+                        <p class="p-summary">Blockchain state synchronization framework binding physical asset telemetry to immutable on-chain digital twin tokens.</p>
+                        <div class="p-actions">
+                            <a href="https://github.com/snehalsarkar7/DigitalTwin" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View Digital Twin Repository">
+                                <span>GitHub Code</span>
+                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. NFT Royalty System -->
+                <div class="project-card" data-category="web3">
+                    <div class="p-img"><img src="assets/project6.jpg" alt="NFT Royalty System" loading="lazy"></div>
+                    <div class="p-badge web3-badge">Clarity / Stacks</div>
+                    <div class="p-info">
+                        <div class="p-meta">
+                            <span class="p-tag">Clarity</span>
+                            <span class="p-tag">Bitcoin Stacks L2</span>
+                        </div>
+                        <h3>NFT ROYALTY MONETIZATION</h3>
+                        <p class="p-summary">Smart contract protocol enforcing automated secondary market royalty revenue distribution for digital creators on Stacks.</p>
+                        <div class="p-actions">
+                            <a href="https://github.com/snehalsarkar7/NFT-Royalty-System" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View NFT Royalty System Repository">
+                                <span>GitHub Code</span>
+                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Web-Fetch Engine -->
+                <div class="project-card" data-category="web">
+                    <div class="p-img"><img src="assets/project5.jpg" alt="Web-Fetch Data Engine" loading="lazy"></div>
+                    <div class="p-badge web-badge">Data Engine</div>
+                    <div class="p-info">
+                        <div class="p-meta">
+                            <span class="p-tag">JavaScript</span>
+                            <span class="p-tag">HTTP APIs / Scraping</span>
+                        </div>
+                        <h3>WEB-FETCH DATA ENGINE</h3>
+                        <p class="p-summary">High-throughput asynchronous web harvesting and extraction engine with intelligent schema parsing and rate control.</p>
+                        <div class="p-actions">
+                            <a href="https://github.com/snehalsarkar7/Web-Fetch" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View Web-Fetch Repository">
+                                <span>GitHub Code</span>
+                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. UrbanNest - Home Lifestyle Store -->
+                <div class="project-card" data-category="web">
+                    <div class="p-img"><img src="assets/project7.jpg" alt="UrbanNest Home Lifestyle Store" loading="lazy"></div>
+                    <div class="p-badge lifestyle-badge">Home & Lifestyle Store</div>
+                    <div class="p-info">
+                        <div class="p-meta">
+                            <span class="p-tag">E-Commerce</span>
+                            <span class="p-tag">Home & Decor</span>
+                        </div>
+                        <h3>URBANNEST LIFESTYLE STORE</h3>
+                        <p class="p-summary">Modern e-commerce platform and curated home lifestyle store featuring premium interior decor collections, furniture catalog, and shopping cart checkout.</p>
+                        <div class="p-actions">
+                            <a href="https://github.com/snehalsarkar7/UrbanNest" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View UrbanNest Repository">
+                                <span>GitHub Code</span>
+                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Developer Portfolio -->
+                <div class="project-card" data-category="web">
+                    <div class="p-img"><img src="assets/project8.jpg" alt="Developer Portfolio" loading="lazy"></div>
+                    <div class="p-badge web-badge">Creative Dev</div>
+                    <div class="p-info">
+                        <div class="p-meta">
+                            <span class="p-tag">JavaScript</span>
+                            <span class="p-tag">3D Vanta & AI Bot</span>
+                        </div>
+                        <h3>CYBER DEVELOPER PORTFOLIO</h3>
+                        <p class="p-summary">High-performance cyber-themed developer portfolio featuring 3D ambient dynamics, an interactive AI assistant, and retro game milestones.</p>
+                        <div class="p-actions">
+                            <a href="https://github.com/snehalsarkar7/my_portfolio" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View Portfolio Repository">
+                                <span>GitHub Code</span>
+                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horizontal Scroll Progress & Indicators -->
+            <div class="project-carousel-footer">
+                <div class="project-scroll-progress-container">
+                    <div class="project-scroll-progress-bar" id="project-progress-bar"></div>
+                </div>
+                <div class="project-scroll-hint">
+                    <span class="hint-icon">↔</span>
+                    <span>Scroll or drag horizontally to explore all projects</span>
+                </div>
+            </div>
         </div>
     </section>
 
