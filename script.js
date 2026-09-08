@@ -1064,8 +1064,9 @@ document.addEventListener("DOMContentLoaded", function() {
             `
         },
         projects: {
-            text: `🚀 <strong>All 8 Public Projects & Engineering Work:</strong><br>
+            text: `🚀 <strong>All 9 Public Projects & Engineering Work:</strong><br>
             <ul class="bot-list">
+                <li><strong>Civic Issue Reporter:</strong> Flutter & Dart mobile app with 5-step reporting wizard, GPS geocoding, Hive offline NoSQL DB & APK download.</li>
                 <li><strong>Agentic AI Platform:</strong> Multi-agent autonomous workflow orchestration & intelligent tool calling framework.</li>
                 <li><strong>HyperLocal Weather Station:</strong> IoT telemetry system on ESP32 with BME280 & MQ-135 sensors.</li>
                 <li><strong>NFT Transparent Project Funding:</strong> Ethereum & Solidity smart contract escrow for decentralized crowdfunding.</li>
@@ -1079,6 +1080,23 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="bot-actions">
                     <a href="#projects" class="bot-btn">Explore Projects Section ↓</a>
                     <a href="https://github.com/snehalsarkar7" target="_blank" class="bot-btn teal">🐙 GitHub Profile ↗</a>
+                </div>
+            `
+        },
+        civic: {
+            text: `📱 <strong>Civic Issue Reporter (Flutter Mobile App):</strong><br><br>
+            A production-quality cross-platform mobile application built with <strong>Flutter & Dart</strong> empowering citizens to report urban and municipal problems (potholes, streetlights, garbage, water leaks).<br><br>
+            <strong>Key Architecture & Highlights:</strong>
+            <ul class="bot-list">
+                <li><strong>5-Step Report Wizard:</strong> Category picker, camera & multi-photo attachment, automatic GPS location pinning, and description.</li>
+                <li><strong>Offline-First Local Storage:</strong> Zero cloud dependency required; powered by high-speed Hive NoSQL database and local photo directory management.</li>
+                <li><strong>Interactive Google Maps & Timeline:</strong> Visual community report plotting and interactive lifecycle status tracker.</li>
+                <li><strong>Android Release:</strong> Direct standalone <code>.apk</code> download ready for immediate on-device testing.</li>
+            </ul>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="https://github.com/snehalsarkar7/Civic_Issue_Reporter" target="_blank" class="bot-btn teal">Civic Reporter GitHub ↗</a>
+                    <a href="https://github.com/snehalsarkar7/Civic_Issue_Reporter/raw/main/releases/app-release.apk" target="_blank" class="bot-btn">📦 Download APK ↗</a>
                 </div>
             `
         },
@@ -1222,7 +1240,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <ul class="bot-list">
                 <li>🎓 Education & CGPA at UEM Jaipur</li>
                 <li>🛠️ Technical Skills & Full Stack Web/App stack</li>
-                <li>🚀 8 Featured Projects (AI Agents, Web3, IoT, E-Commerce, Web Apps)</li>
+                <li>🚀 9 Featured Projects (Mobile Apps, AI Agents, Web3, IoT, E-Commerce, Web)</li>
                 <li>💼 Trainee Experience at Dronnester</li>
                 <li>🏆 Leadership Roles (Atrang VP, Toastmasters, HackSec)</li>
                 <li>📬 Contact & Hiring Information</li>
@@ -1233,6 +1251,11 @@ document.addEventListener("DOMContentLoaded", function() {
         // 2. Who is Snehal / About / Intro
         if (query.includes("who is") || query.includes("who are you") || query.includes("about snehal") || query.includes("introduce") || query.includes("tell me about") || query.includes("bio") || query.includes("overview") || query.includes("profile")) {
             return knowledgeBase.about.text + knowledgeBase.about.actions;
+        }
+
+        // 3. Civic Issue Reporter / Flutter / Mobile App / APK
+        if (query.includes("civic") || query.includes("issue reporter") || query.includes("pothole") || query.includes("apk") || query.includes("mobile app") || query.includes("android app") || (query.includes("flutter") && !query.includes("skill"))) {
+            return knowledgeBase.civic.text + knowledgeBase.civic.actions;
         }
 
         // 3. Tech Stack / Skills / Languages

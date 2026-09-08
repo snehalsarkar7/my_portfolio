@@ -142,35 +142,39 @@ The AI chatbot embedded in this portfolio acts as an interactive resume assistan
 
 ## 🚀 Featured Projects Showcased
 
-### 1. [Agentic AI Platform](https://github.com/snehalsarkar7/Agentic_Ai)
+### 1. [Civic Issue Reporter — Flutter Mobile App](https://github.com/snehalsarkar7/Civic_Issue_Reporter)
+* **Stack:** Flutter, Dart, Android SDK, iOS, Hive NoSQL, Google Maps SDK, GPS Geocoding, Material 3.
+* **Description:** Production-quality cross-platform mobile app enabling citizens to report civic infrastructure issues (potholes, streetlights, garbage, water leaks) with offline-first Hive storage, 5-step report wizard, and direct Android APK download.
+
+### 2. [Agentic AI Platform](https://github.com/snehalsarkar7/Agentic_Ai)
 * **Stack:** AI Agents, LLM Orchestration, JavaScript, Automation Pipelines.
 * **Description:** Autonomous agent framework executing multi-step workflows, tool-augmented reasoning, and dynamic task delegation.
 
-### 2. [HyperLocal Weather Monitoring System](https://github.com/snehalsarkar7/HyperLocal)
+### 3. [HyperLocal Weather Monitoring System](https://github.com/snehalsarkar7/HyperLocal)
 * **Stack:** IoT, ESP32, Dart, Flutter, BME280, MQ-135 Air Quality Sensor, HTTP REST APIs.
 * **Description:** Real-time environmental telemetry node calculating temperature, barometric pressure, humidity, and gas index values for hyper-local micro-climate observation.
 
-### 3. [NFT Transparent Project Funding](https://github.com/snehalsarkar7/transparentFunding.sol)
+### 4. [NFT Transparent Project Funding](https://github.com/snehalsarkar7/transparentFunding.sol)
 * **Stack:** Blockchain, Solidity, Ethereum Network, Smart Contracts, Web3.
 * **Description:** Decentralized Web3 crowdfunding protocol ensuring milestone-based escrow release, transparent donor records, and tamper-proof ledger validation.
 
-### 4. [Digital Twin Smart Contract](https://github.com/snehalsarkar7/DigitalTwin)
+### 5. [Digital Twin Smart Contract](https://github.com/snehalsarkar7/DigitalTwin)
 * **Stack:** Move Language, Blockchain, Smart Contract Architecture, Digital Twins.
 * **Description:** Blockchain verification framework binding physical asset state updates and telemetry to immutable digital twin tokens on-chain.
 
-### 5. [NFT Royalty Monetization Protocol](https://github.com/snehalsarkar7/NFT-Royalty-System)
+### 6. [NFT Royalty Monetization Protocol](https://github.com/snehalsarkar7/NFT-Royalty-System)
 * **Stack:** Clarity, Stacks Blockchain, Bitcoin L2, Smart Contracts.
 * **Description:** Automated secondary market royalty enforcement contract on Clarity ensuring guaranteed revenue distribution for digital creators.
 
-### 6. [Web-Fetch Data Engine](https://github.com/snehalsarkar7/Web-Fetch)
+### 7. [Web-Fetch Data Engine](https://github.com/snehalsarkar7/Web-Fetch)
 * **Stack:** JavaScript, Node.js, Async HTTP Pipeline, Scraping & Extraction.
 * **Description:** High-throughput asynchronous web harvesting and extraction engine with intelligent schema parsing and rate limiting.
 
-### 7. [UrbanNest Home Lifestyle Store](https://github.com/snehalsarkar7/UrbanNest)
+### 8. [UrbanNest Home Lifestyle Store](https://github.com/snehalsarkar7/UrbanNest)
 * **Stack:** JavaScript, HTML5/CSS3, E-Commerce, Responsive Web UI.
 * **Description:** Modern e-commerce web platform and curated home lifestyle store featuring minimalist interior collections, furniture catalog, and shopping cart checkout.
 
-### 8. [Cyber-Themed Interactive Portfolio](https://github.com/snehalsarkar7/my_portfolio)
+### 9. [Cyber-Themed Interactive Portfolio](https://github.com/snehalsarkar7/my_portfolio)
 * **Stack:** JavaScript, HTML5, CSS3, Vanta 3D Ambient Net, Canvas Retro Game Engine, AI Assistant.
 * **Description:** Highly optimized interactive developer portfolio with real-time AI companion, retro arcade milestone game, and responsive cyber aesthetic.
 
@@ -192,6 +196,7 @@ my_portfolio/
 │   ├── project6.jpg              # NFT Royalty contract preview
 │   ├── project7.jpg              # UrbanNest housing platform preview
 │   ├── project8.jpg              # Cyber developer portfolio preview
+│   ├── project9.jpg              # Civic Issue Reporter mobile app preview
 │   ├── SNEHAL_SARKAR_Resume.pdf  # Downloadable PDF Resume
 │   ├── python.svg                # Skill vector icons
 │   ├── java.svg
