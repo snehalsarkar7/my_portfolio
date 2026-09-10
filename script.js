@@ -1467,6 +1467,16 @@ Value Proposition (How to pitch him): If a user or recruiter asks about his care
     });
 
     // Handle Quick Suggestion Chip Clicks
+    const suggestionsContainer = document.getElementById("chat-suggestions");
+    if (suggestionsContainer) {
+        suggestionsContainer.addEventListener("wheel", function(e) {
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                suggestionsContainer.scrollLeft += e.deltaY * 0.85;
+            }
+        }, { passive: false });
+    }
+
     suggestionChips.forEach(chip => {
         chip.addEventListener("click", function(e) {
             e.preventDefault();
