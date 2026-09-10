@@ -116,11 +116,15 @@ The AI chatbot embedded in this portfolio acts as an interactive resume assistan
        └────────────────────────────────────────────────────────┘
 ```
 
-### Knowledge Base Highlights:
-* **Background & Bio:** BCA student at UEM Jaipur with a strong **7.80 CGPA**.
-* **Core Languages:** Java, Python, JavaScript (ES6+), HTML5, CSS3, Solidity.
-* **Frameworks & Tools:** React, Flutter, Node.js, MongoDB, Git, Figma, MS Office Suite.
-* **Hardware & Systems:** ESP32, BME280, MQ-135, Drone Firmware & Telemetry.
+### Knowledge Base & Persona Highlights:
+* **Background & Bio:** BCA student at UEM Jaipur with a strong **7.80 CGPA**, originally from Kolkata, West Bengal.
+* **Career Vision & Strategy:** The Hybrid Advantage — bridging technical execution and business strategy for roles like Business Analyst, Business Associate, Business Strategist, and HR.
+* **Personal Journey & Adaptability:** Kolkata ⇄ Jaipur journey, adaptability mindset, learning agility, and independent growth.
+* **Technical Toolkit:** Java, Python, HTML/CSS, JavaScript, React, Flutter, Dart, C++, Solidity, MongoDB, Git, Vercel, MS Office suite.
+* **Emerging Tech & Hardware:** AI Prompt Engineering (Google Veo/Flow multi-scene video), IoT (ESP32, BME280, VEML6070, MQ-135).
+* **Key Projects:** Hyperlocal IoT Weather Monitoring System, Transparent Project Funding Platform (Ethereum/Solidity), UrbanNest (n8n AI chatbot hackathon), Monsoon Merchant (3D strategy game), Civic Issue Reporter.
+* **Leadership & Extracurriculars:** Atrang Cultural Club VP (Jan 2026–Present), UEM Jaipur Toastmasters Club (TMOD/Hark Master & BIT Mesra mentor), HACKSEC Club member, OSINT & Football event coordination, Dronnester Trainee.
+* **Certifications:** Coursera (2026: MySQL Database Structures, Quantitative Aptitude, Java), LinkedIn Learning (2025: Soft Skills for Creative Professionals, Business Ethics, IoT Foundations).
 
 ---
 

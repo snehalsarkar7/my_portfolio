@@ -1036,12 +1036,64 @@ document.addEventListener("DOMContentLoaded", function() {
         if (indicator) indicator.remove();
     }
 
+    // =========================================================================
+    // SNEHAL SARKAR AI PORTFOLIO ASSISTANT - SYSTEM PROMPT & KNOWLEDGE ENGINE
+    // =========================================================================
+    const SYSTEM_PROMPT = `Role & Persona
+You are the official AI portfolio assistant for Snehal Sarkar. Your goal is to welcome visitors, recruiters, and collaborators to Snehal's portfolio website. You must be professional, warm, and highly knowledgeable about his skills, projects, and experiences. Mirror Snehal’s creative, detail-oriented, and adaptable personality.
+
+Core Identity & Background
+Name: Snehal Sarkar.
+Location: Originally from Kolkata, West Bengal, currently based in Jaipur for academics.
+Education: Pursuing a Bachelor of Computer Applications (BCA) at the University of Engineering and Management (UEM) in Jaipur, with a current CGPA of 7.80.
+Languages: Fluent in English, Bengali, and Hindi.
+Contact: snehalsarkar94@gmail.com | +91 8902515964 | GitHub: snehalsarkar7 | LinkedIn: snehal-sarkar-7773b7321.
+
+Technical Toolkit & Capabilities
+Languages & Frameworks: Java, Python, HTML, CSS, JavaScript, React, Flutter, Dart, C++, and Solidity.
+Databases & Tools: MongoDB, Git, Vercel, and Microsoft Office suite.
+Emerging Tech: Proficient in AI Prompt Engineering (using tools like Google Veo/Flow for multi-scene video generation) and IoT hardware engineering.
+
+Key Projects
+Hyperlocal IoT Weather Monitoring System: Developed a responsive system using Flutter, Dart, Python Flask, and IoT APIs to fetch real-time updates and 5-day forecasts. Agent Note: Snehal designed the hardware architecture using ESP32 microcontrollers and environmental sensors like the BME280, VEML6070, and MQ-135.
+Transparent Project Funding Platform: Built a decentralized crowdfunding platform using Ethereum blockchain and Solidity, utilizing smart contracts for trustless transactions and eliminating intermediaries.
+UrbanNest: Built an n8n AI chatbot integration during a university hackathon.
+Monsoon Merchant: Developed concepts and roadmap code for a 3D browser strategy game.
+
+Leadership & Extracurricular Experience
+Atrang Cultural Club: Vice President (Jan 2026 - Present).
+UEM Jaipur Toastmasters Club: Member since April 2025, frequently taking on active leadership roles such as Toastmaster of the Day and Hark Master, and participating in mentoring visits to other institutes like BIT Mesra.
+HACKSEC Club: Active member since August 2024.
+Event Coordination: Student coordinator for the "Pixel Ki Paheli 2.0" OSINT mystery competition and promotional organizer for the UEM Franchise Football League (UFL 2026).
+Dronnester: Trainee (Sep 2024 - Mar 2025).
+Soft Skills: Strong focus on communication, public speaking, and public relations.
+
+Certifications
+Coursera (2026): Database Structures and Management with MySQL, Quantitative Aptitude Mastery, Fundamentals of Java Programming.
+LinkedIn Learning (2025): Essential Soft Skills for Creative Professionals, Business Ethics, IoT Foundations: Operating Systems Fundamentals.
+
+Instructions for Answering Queries
+Be Direct but Engaging: Answer questions about Snehal's background concisely. If asked about his skills, highlight both his frontend/backend development and his hardware/IoT expertise.
+Focus on Continuous Growth: Emphasize his passion for continuous improvement and innovation in modern web and mobile applications.
+Handling Unanswered Questions: If a visitor asks something outside this knowledge base, politely inform them that you are an AI assistant and encourage them to reach out to Snehal directly via his email or LinkedIn. Do not invent or hallucinate facts about his employment history or private life.
+
+Personal Journey & Adaptability
+The Journey: Snehal's academic and personal journey spans from his roots in Kolkata to Jaipur, where he relocated to pursue his BCA degree. He frequently travels between these two distinct cities, an experience that has profoundly shaped his adaptable nature, independence, and broad worldview.
+Adaptability Mindset: Snehal thrives in the face of change. He is highly adaptable in every situation, viewing challenges not as roadblocks, but as opportunities to learn and pivot. Whether navigating a new technical framework or managing team dynamics, he adjusts quickly and effectively.
+
+Career Vision: The Business & Strategic Edge
+The Hybrid Advantage: While Snehal possesses a formidable technical foundation, he firmly believes that his greatest potential for growth lies in non-technical and strategic roles.
+Target Aspirations: He is deeply interested in pivoting toward roles such as Human Resources (HR), Business Analyst, Business Associate, and Business Strategist.
+Value Proposition (How to pitch him): If a user or recruiter asks about his career goals, emphasize that Snehal is not just a developer. His technical knowledge gives him a unique, analytical edge in understanding complex business systems, but his true superpower is his ability to excel, adapt, and lead in business-driven, people-centric environments. He bridges the gap between technical execution and business strategy.`;
+
     // Comprehensive Knowledge Base & Response Engine
     const knowledgeBase = {
         about: {
-            text: `👋 <strong>Hi, I'm Snehal Sarkar's AI Assistant!</strong><br><br>
-            Snehal is a detail-oriented technology student based in <span class="bot-highlight">Kolkata, West Bengal</span>, currently pursuing a <strong>Bachelor of Computer Applications (BCA)</strong> at the <strong>University of Engineering and Management (UEM), Jaipur</strong>.<br><br>
-            Maintaining a strong <span class="bot-tag">7.80 CGPA</span>, he is highly adaptable, creative, and actively applies a diverse technical toolkit to drive efficiency and innovation in competitive environments.`,
+            text: `👋 <strong>Hi, I'm Snehal Sarkar's official AI Assistant!</strong><br><br>
+            Snehal is a creative, detail-oriented, and highly adaptable tech talent originally from <span class="bot-highlight">Kolkata, West Bengal</span>, currently based in <strong>Jaipur</strong> for his academics.<br><br>
+            🎓 <strong>Education:</strong> Pursuing a <strong>Bachelor of Computer Applications (BCA)</strong> at the <strong>University of Engineering and Management (UEM), Jaipur</strong> with a strong <span class="bot-tag">7.80 CGPA</span>.<br>
+            🗣️ <strong>Languages:</strong> Fluent in <span class="bot-tag">English</span>, <span class="bot-tag">Bengali</span>, and <span class="bot-tag">Hindi</span>.<br><br>
+            He combines deep technical proficiency across software and IoT with an exceptional strategic, people-centric mindset.`,
             actions: `
                 <div class="bot-actions">
                     <a href="#about" class="bot-btn">Read Full Bio ↓</a>
@@ -1049,115 +1101,169 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             `
         },
-        skills: {
-            text: `🛠️ <strong>Snehal's Technical & Professional Stack:</strong><br><br>
-            <strong>Robust Development:</strong><br>
-            <span class="bot-tag">Java</span> <span class="bot-tag">Python</span> <span class="bot-tag">HTML5</span> <span class="bot-tag">CSS3</span> <span class="bot-tag">JavaScript</span> <span class="bot-tag">React</span> <span class="bot-tag">Flutter</span> <span class="bot-tag">MongoDB</span><br><br>
-            <strong>Specialized & Hardware Skills:</strong><br>
-            <span class="bot-tag">Ethereum & Solidity</span> <span class="bot-tag">IoT & ESP32</span> <span class="bot-tag">Environmental Sensors (BME280, MQ-135)</span><br><br>
-            <strong>Creative & Digital Skills:</strong><br>
-            <span class="bot-tag">Multimedia Editing</span> <span class="bot-tag">Microsoft Office Suite</span> <span class="bot-tag">AI Text-to-Video Tools</span>`,
+        career_vision: {
+            text: `💼 <strong>Career Vision: The Business & Strategic Edge</strong><br><br>
+            <strong>The Hybrid Advantage:</strong> While Snehal possesses a formidable technical foundation across software and hardware, he firmly believes his greatest potential for impact and growth lies in <em>strategic and people-centric roles</em>.<br><br>
+            🎯 <strong>Target Aspirations:</strong><br>
+            <ul class="bot-list">
+                <li><span class="bot-highlight">Business Analyst / Business Associate</span></li>
+                <li><span class="bot-highlight">Business Strategist</span></li>
+                <li><span class="bot-highlight">Human Resources (HR) & People Operations</span></li>
+            </ul>
+            💡 <strong>The Pitch / Value Proposition:</strong><br>
+            Snehal is not just a developer. His technical expertise gives him a rare analytical edge to deconstruct complex business architectures, while his leadership in Toastmasters and student clubs empowers him to communicate, adapt, and drive team synergy. <strong>He bridges the gap between technical execution and business strategy.</strong>`,
             actions: `
                 <div class="bot-actions">
-                    <a href="#skills" class="bot-btn">View Skills Section ↓</a>
+                    <a href="#contact" class="bot-btn">Discuss Opportunities ↓</a>
+                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">📄 Download Resume</a>
+                </div>
+            `
+        },
+        journey_adaptability: {
+            text: `🧭 <strong>Personal Journey & Adaptability Mindset:</strong><br><br>
+            🚂 <strong>The Kolkata ⇄ Jaipur Journey:</strong><br>
+            Snehal's journey spans from his roots in Kolkata to Jaipur, where he relocated to pursue his BCA degree. Frequently traveling between these two culturally distinct cities has forged deep self-reliance, adaptability, and a broad worldview.<br><br>
+            ⚡ <strong>Adaptability Mindset:</strong><br>
+            Snehal thrives in the face of change. He views unexpected hurdles not as roadblocks, but as prime opportunities to learn, iterate, and pivot. Whether mastering a new technical framework or steering cross-functional team dynamics, he adjusts quickly and effectively.`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="#timeline-journey" class="bot-btn">View Journey Milestones ↓</a>
+                </div>
+            `
+        },
+        skills: {
+            text: `🛠️ <strong>Technical Toolkit & Capabilities:</strong><br><br>
+            💻 <strong>Languages & Frameworks:</strong><br>
+            <span class="bot-tag">Java</span> <span class="bot-tag">Python</span> <span class="bot-tag">HTML5</span> <span class="bot-tag">CSS3</span> <span class="bot-tag">JavaScript</span> <span class="bot-tag">React</span> <span class="bot-tag">Flutter</span> <span class="bot-tag">Dart</span> <span class="bot-tag">C++</span> <span class="bot-tag">Solidity</span><br><br>
+            🗄️ <strong>Databases & Tools:</strong><br>
+            <span class="bot-tag">MongoDB</span> <span class="bot-tag">Git & GitHub</span> <span class="bot-tag">Vercel</span> <span class="bot-tag">Microsoft Office Suite</span><br><br>
+            🚀 <strong>Emerging Tech & Hardware:</strong><br>
+            <span class="bot-tag">AI Prompt Engineering (Google Veo / Flow multi-scene video)</span> <span class="bot-tag">IoT Hardware (ESP32, BME280, VEML6070, MQ-135)</span>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="#skills" class="bot-btn">Explore Skills Section ↓</a>
                 </div>
             `
         },
         projects: {
-            text: `🚀 <strong>All 9 Public Projects & Engineering Work:</strong><br>
+            text: `🚀 <strong>Snehal's Key Projects & Engineering Work:</strong><br>
             <ul class="bot-list">
-                <li><strong>Civic Issue Reporter:</strong> Flutter & Dart mobile app with 5-step reporting wizard, GPS geocoding, Hive offline NoSQL DB & APK download.</li>
-                <li><strong>Agentic AI Platform:</strong> Multi-agent autonomous workflow orchestration & intelligent tool calling framework.</li>
-                <li><strong>HyperLocal Weather Station:</strong> IoT telemetry system on ESP32 with BME280 & MQ-135 sensors.</li>
-                <li><strong>NFT Transparent Project Funding:</strong> Ethereum & Solidity smart contract escrow for decentralized crowdfunding.</li>
-                <li><strong>Digital Twin Smart Contract:</strong> On-chain physical asset telemetry synchronization written in Move.</li>
-                <li><strong>NFT Royalty Monetization:</strong> Clarity smart contract on Bitcoin Stacks L2 for creator secondary revenue.</li>
-                <li><strong>Web-Fetch Data Engine:</strong> Asynchronous high-throughput web scraping & API parsing utility in JavaScript.</li>
-                <li><strong>UrbanNest Lifestyle Store:</strong> Modern e-commerce web platform for curated home living, furniture, and interior decor.</li>
-                <li><strong>Cyber Developer Portfolio:</strong> Interactive portfolio featuring 3D dynamics, retro canvas game & this AI assistant!</li>
+                <li><strong>Hyperlocal IoT Weather Monitoring System:</strong> ESP32 architecture with BME280, VEML6070, & MQ-135 sensors, Python Flask backend & Flutter app.</li>
+                <li><strong>Transparent Project Funding Platform:</strong> Decentralized crowdfunding platform on Ethereum blockchain using Solidity smart contracts for trustless transactions.</li>
+                <li><strong>UrbanNest:</strong> Modern home living web platform with an <em>n8n AI chatbot integration</em> developed during a university hackathon.</li>
+                <li><strong>Monsoon Merchant:</strong> Concepts and roadmap code for an immersive 3D browser strategy game.</li>
+                <li><strong>Civic Issue Reporter:</strong> Flutter mobile app with 5-step reporting wizard, GPS geocoding, and offline-first Hive NoSQL DB.</li>
             </ul>`,
             actions: `
                 <div class="bot-actions">
-                    <a href="#projects" class="bot-btn">Explore Projects Section ↓</a>
+                    <a href="#projects" class="bot-btn">View Projects Section ↓</a>
                     <a href="https://github.com/snehalsarkar7" target="_blank" class="bot-btn teal">🐙 GitHub Profile ↗</a>
+                </div>
+            `
+        },
+        iot: {
+            text: `🛰️ <strong>Hyperlocal IoT Weather Monitoring System:</strong><br><br>
+            Snehal designed and developed a comprehensive IoT telemetry and weather prediction system.<br><br>
+            <strong>Core Architecture & Hardware:</strong>
+            <ul class="bot-list">
+                <li><strong>Microcontroller:</strong> <span class="bot-highlight">ESP32</span> microcontroller handling sensor data acquisition.</li>
+                <li><strong>Sensor Array:</strong> <span class="bot-tag">BME280</span> (Pressure, Temperature, Humidity), <span class="bot-tag">VEML6070</span> (UV index), and <span class="bot-tag">MQ-135</span> (Air Quality / Gas).</li>
+                <li><strong>Software Stack:</strong> Responsive mobile application built with <strong>Flutter & Dart</strong>, <strong>Python Flask</strong> backend API, and 5-day weather forecasting.</li>
+            </ul>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="https://github.com/snehalsarkar7/HyperLocal" target="_blank" class="bot-btn">Explore IoT Project ↗</a>
+                </div>
+            `
+        },
+        blockchain: {
+            text: `⛓️ <strong>Transparent Project Funding Platform (Web3 / Solidity):</strong><br><br>
+            A decentralized crowdfunding platform engineered on the <strong>Ethereum blockchain</strong> utilizing <strong>Solidity smart contracts</strong>.<br><br>
+            <strong>Key Highlights:</strong>
+            <ul class="bot-list">
+                <li><strong>Trustless Escrow:</strong> Smart contract-based milestone governance eliminating intermediaries.</li>
+                <li><strong>Total Transparency:</strong> Immutable on-chain fund allocation preventing misallocation.</li>
+                <li><strong>Direct P2P Backing:</strong> Connects creators and backers seamlessly with verified wallet transactions.</li>
+            </ul>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="https://github.com/snehalsarkar7/transparentFunding.sol" target="_blank" class="bot-btn teal">View Solidity Contract ↗</a>
+                </div>
+            `
+        },
+        urbannest: {
+            text: `🏡 <strong>UrbanNest & n8n AI Chatbot Integration:</strong><br><br>
+            Built during a competitive <strong>University Hackathon</strong>, UrbanNest is a modern web application for curated home living and interior design.<br><br>
+            <strong>Key Features:</strong>
+            <ul class="bot-list">
+                <li><strong>n8n AI Chatbot Integration:</strong> Automated conversational assistant workflow for intelligent customer interaction and product recommendations.</li>
+                <li><strong>Curated Store Catalog:</strong> Responsive showcase for modern living essentials, furniture, and lighting.</li>
+            </ul>`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="https://github.com/snehalsarkar7/UrbanNest" target="_blank" class="bot-btn teal">UrbanNest Repo ↗</a>
+                </div>
+            `
+        },
+        monsoon_merchant: {
+            text: `🎮 <strong>Monsoon Merchant (3D Browser Strategy Game):</strong><br><br>
+            A creative gaming project where Snehal developed the conceptual game mechanics, economic simulation models, and roadmap code for an engaging <strong>3D browser-based strategy game</strong> set during historical trade routes.`,
+            actions: `
+                <div class="bot-actions">
+                    <a href="#projects" class="bot-btn">Explore Projects ↓</a>
                 </div>
             `
         },
         civic: {
             text: `📱 <strong>Civic Issue Reporter (Flutter Mobile App):</strong><br><br>
-            A production-quality cross-platform mobile application built with <strong>Flutter & Dart</strong> empowering citizens to report urban and municipal problems (potholes, streetlights, garbage, water leaks).<br><br>
-            <strong>Key Architecture & Highlights:</strong>
+            A production-ready civic engagement mobile app built with <strong>Flutter & Dart</strong>.<br><br>
             <ul class="bot-list">
-                <li><strong>5-Step Report Wizard:</strong> Category picker, camera & multi-photo attachment, automatic GPS location pinning, and description.</li>
-                <li><strong>Offline-First Local Storage:</strong> Zero cloud dependency required; powered by high-speed Hive NoSQL database and local photo directory management.</li>
-                <li><strong>Interactive Google Maps & Timeline:</strong> Visual community report plotting and interactive lifecycle status tracker.</li>
-                <li><strong>Android Release:</strong> Direct standalone <code>.apk</code> download ready for immediate on-device testing.</li>
+                <li>5-step guided issue reporting wizard with live photo capture.</li>
+                <li>Automatic GPS geocoding and map plotting.</li>
+                <li>Offline-first local caching powered by Hive NoSQL database.</li>
+                <li>Standalone Android <code>.apk</code> available for direct install.</li>
             </ul>`,
             actions: `
                 <div class="bot-actions">
-                    <a href="https://github.com/snehalsarkar7/Civic_Issue_Reporter" target="_blank" class="bot-btn teal">Civic Reporter GitHub ↗</a>
+                    <a href="https://github.com/snehalsarkar7/Civic_Issue_Reporter" target="_blank" class="bot-btn teal">GitHub Repo ↗</a>
                     <a href="https://github.com/snehalsarkar7/Civic_Issue_Reporter/raw/main/releases/app-release.apk" target="_blank" class="bot-btn">📦 Download APK ↗</a>
                 </div>
             `
         },
-        ai: {
-            text: `🤖 <strong>Agentic AI & Machine Intelligence:</strong><br><br>
-            Snehal built an <strong>Agentic AI Platform</strong> focusing on autonomous agent execution and reasoning.<br><br>
-            <strong>Key Features:</strong><br>
+        leadership: {
+            text: `🏆 <strong>Leadership & Extracurricular Experience:</strong><br><br>
+            Snehal combines strong public relations, public speaking, and team leadership:<br>
             <ul class="bot-list">
-                <li>Multi-agent workflow orchestration and modular task delegation.</li>
-                <li>Intelligent tool integration and automated decision-making.</li>
-                <li>Real-time prompt pipelining and structured response generation.</li>
+                <li>🎭 <strong>Atrang Cultural Club:</strong> <span class="bot-highlight">Vice President</span> (Jan 2026 – Present), steering university-wide cultural fests and team initiatives.</li>
+                <li>🗣️ <strong>UEM Jaipur Toastmasters Club:</strong> Active member since April 2025; regularly steps up as <em>Toastmaster of the Day</em> & <em>Hark Master</em>, and participated in mentoring outreach visits to institutes like BIT Mesra.</li>
+                <li>🛡️ <strong>HACKSEC Club:</strong> Active member since August 2024 (Cybersecurity & Ethical Hacking).</li>
+                <li>🎯 <strong>Event Coordination:</strong> Student Coordinator for <em>"Pixel Ki Paheli 2.0"</em> (OSINT mystery competition) & promotional organizer for the <em>UEM Franchise Football League (UFL 2026)</em>.</li>
+                <li>💬 <strong>Soft Skills Focus:</strong> Communication, public speaking, conflict resolution, and public relations.</li>
             </ul>`,
             actions: `
                 <div class="bot-actions">
-                    <a href="https://github.com/snehalsarkar7/Agentic_Ai" target="_blank" class="bot-btn teal">View Agentic AI Repo ↗</a>
+                    <a href="#about" class="bot-btn">Read Leadership Bio ↓</a>
                 </div>
             `
         },
-        blockchain: {
-            text: `⛓️ <strong>Web3 & Blockchain Smart Contracts:</strong><br><br>
-            Snehal has engineered smart contracts across multiple blockchains and languages:<br>
+        certifications: {
+            text: `📜 <strong>Professional Certifications & Continuous Learning:</strong><br><br>
+            Snehal actively pursues continuous growth and upskilling across technical and strategic domains:<br><br>
+            <strong>Coursera (2026):</strong><br>
             <ul class="bot-list">
-                <li><strong>NFT Transparent Project Funding (Solidity):</strong> Trustless Ethereum escrow crowdfunding with milestone accountability.</li>
-                <li><strong>NFT Royalty System (Clarity / Stacks):</strong> Automated secondary market creator royalty enforcement on Bitcoin L2.</li>
-                <li><strong>Digital Twin Smart Contract (Move):</strong> Immutable on-chain synchronization for physical IoT asset states.</li>
+                <li><span class="bot-highlight">Database Structures and Management with MySQL</span></li>
+                <li><span class="bot-highlight">Quantitative Aptitude Mastery</span></li>
+                <li><span class="bot-highlight">Fundamentals of Java Programming</span></li>
+            </ul>
+            <strong>LinkedIn Learning (2025):</strong><br>
+            <ul class="bot-list">
+                <li><span class="bot-highlight">Essential Soft Skills for Creative Professionals</span></li>
+                <li><span class="bot-highlight">Business Ethics</span></li>
+                <li><span class="bot-highlight">IoT Foundations: Operating Systems Fundamentals</span></li>
             </ul>`,
             actions: `
                 <div class="bot-actions">
-                    <a href="https://github.com/snehalsarkar7/transparentFunding.sol" target="_blank" class="bot-btn teal">Solidity Funding ↗</a>
-                    <a href="https://github.com/snehalsarkar7/NFT-Royalty-System" target="_blank" class="bot-btn">Clarity Royalty ↗</a>
-                    <a href="https://github.com/snehalsarkar7/DigitalTwin" target="_blank" class="bot-btn teal">Move Contract ↗</a>
-                </div>
-            `
-        },
-        web: {
-            text: `🌐 <strong>Web Applications & E-Commerce Platforms:</strong><br><br>
-            Snehal's web development projects include:<br>
-            <ul class="bot-list">
-                <li><strong>UrbanNest Home Lifestyle Store:</strong> Modern e-commerce web platform for curated home living essentials, minimalist furniture, lighting, and interior decor.</li>
-                <li><strong>Web-Fetch Data Engine:</strong> High-performance asynchronous HTTP harvesting, scraping, and real-time schema parsing.</li>
-                <li><strong>Cyber Portfolio:</strong> Custom JavaScript design system, 3D Vanta background, retro game engine, and AI assistant.</li>
-            </ul>`,
-            actions: `
-                <div class="bot-actions">
-                    <a href="https://github.com/snehalsarkar7/UrbanNest" target="_blank" class="bot-btn teal">UrbanNest Store Repo ↗</a>
-                    <a href="https://github.com/snehalsarkar7/Web-Fetch" target="_blank" class="bot-btn">Web-Fetch Repo ↗</a>
-                </div>
-            `
-        },
-        iot: {
-            text: `🛰️ <strong>IoT & Hardware Engineering:</strong><br><br>
-            Snehal engineered a <strong>Hyperlocal IoT Weather Monitoring System</strong> featuring real-time telemetry updates and API integration.<br><br>
-            <strong>Hardware integration highlights:</strong><br>
-            <ul class="bot-list">
-                <li>Configuring <span class="bot-highlight">ESP32 microcontrollers</span>.</li>
-                <li>Deploying environmental sensors (<span class="bot-tag">BME280</span> for pressure/humidity/temp and <span class="bot-tag">MQ-135</span> for air quality).</li>
-                <li>Conducted hands-on experimental research for international conferences.</li>
-            </ul>`,
-            actions: `
-                <div class="bot-actions">
-                    <a href="https://github.com/snehalsarkar7/HyperLocal" target="_blank" class="bot-btn">Check IoT GitHub ↗</a>
+                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">📄 View Resume Certifications</a>
                 </div>
             `
         },
@@ -1165,19 +1271,19 @@ document.addEventListener("DOMContentLoaded", function() {
             text: `💼 <strong>Professional Practical Experience:</strong><br><br>
             <strong>Drone Technology Trainee at Dronnester</strong><br>
             <span class="bot-tag">September 2024 – March 2025</span><br><br>
-            Applied software development, drone systems programming, and technical problem-solving skills in a fast-paced professional environment.`,
+            Applied software development, drone systems programming, and technical problem-solving skills in a fast-paced technology environment.`,
             actions: `
                 <div class="bot-actions">
-                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">Download CV / Experience PDF</a>
+                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">📄 Download Resume</a>
                 </div>
             `
         },
         education: {
             text: `🎓 <strong>Academic Qualifications & Education:</strong><br>
             <ul class="bot-list">
-                <li><strong>Bachelor of Computer Applications (BCA):</strong> University of Engineering and Management (UEM), Jaipur. Currently maintaining a strong <span class="bot-highlight">7.80 CGPA</span>.</li>
-                <li><strong>High School (ISC):</strong> Salt Lake Point School (Graduated 2024).</li>
-                <li><strong>Secondary School (ICSE):</strong> St. Paul's KG & Day School (Graduated 2022).</li>
+                <li><strong>Bachelor of Computer Applications (BCA):</strong> University of Engineering and Management (UEM), Jaipur. Current CGPA: <span class="bot-highlight">7.80</span>.</li>
+                <li><strong>High School (ISC):</strong> Salt Lake Point School, Kolkata (Graduated 2024).</li>
+                <li><strong>Secondary School (ICSE):</strong> St. Paul's KG & Day School, Kolkata (Graduated 2022).</li>
             </ul>`,
             actions: `
                 <div class="bot-actions">
@@ -1185,39 +1291,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             `
         },
-        leadership: {
-            text: `🏆 <strong>Executive Leadership & Community Engagement:</strong><br>
-            <ul class="bot-list">
-                <li><strong>Vice President, Atrang Cultural Club:</strong> Guiding major campus cultural initiatives and festivals since January 2026.</li>
-                <li><strong>UEM Jaipur Toastmasters Club:</strong> Active speaker refining communication, public speaking, and PR skills.</li>
-                <li><strong>Event Organizer & Coordinator:</strong> Spearheaded the <em>"Pixel Ki Paheli 2.0"</em> TechFest competition and managed the campus-wide <em>UEM Franchise Football League</em>.</li>
-                <li><strong>HACKSEC Club Member:</strong> Active member of the official Cybersecurity & Ethical Hacking club.</li>
-            </ul>`,
-            actions: `
-                <div class="bot-actions">
-                    <a href="#skills" class="bot-btn teal">See Soft Skills & Leadership</a>
-                </div>
-            `
-        },
-        personal: {
-            text: `🌟 <strong>Personal Mindset & Background:</strong><br><br>
-            Beyond coding and leadership, Snehal is defined by a continuous learning mindset and strong personal values:<br>
-            <ul class="bot-list">
-                <li><strong>Languages:</strong> Fluent in <span class="bot-tag">English</span>, <span class="bot-tag">Bengali</span>, and <span class="bot-tag">Hindi</span>.</li>
-                <li><strong>Interests:</strong> Mentoring his younger brother with school assignments, exploring emerging AI text-to-video tools, and troubleshooting hardware setups.</li>
-                <li><strong>Philosophy:</strong> Blending rigorous technical pursuit with community leadership and creative curiosity.</li>
-            </ul>`,
-            actions: `
-                <div class="bot-actions">
-                    <a href="#contact" class="bot-btn">Get in Touch ↓</a>
-                </div>
-            `
-        },
         contact: {
             text: `📬 <strong>Contact & Connect with Snehal:</strong><br><br>
             📧 <strong>Email:</strong> <a href="mailto:snehalsarkar94@gmail.com" style="color:var(--secondary); text-decoration:underline;">snehalsarkar94@gmail.com</a><br>
-            📱 <strong>Phone:</strong> +91 8902515964<br>
-            📍 <strong>Location:</strong> Kolkata, West Bengal (UEM Jaipur)<br>
+            📱 <strong>Phone:</strong> <a href="tel:+918902515964" style="color:var(--text-main); text-decoration:underline;">+91 8902515964</a><br>
+            📍 <strong>Location:</strong> Kolkata, West Bengal (Academics at UEM Jaipur)<br>
             💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/snehal-sarkar-7773b7321/" target="_blank" style="color:var(--primary); text-decoration:underline;">Snehal Sarkar</a><br>
             🐙 <strong>GitHub:</strong> <a href="https://github.com/snehalsarkar7" target="_blank" style="color:var(--primary); text-decoration:underline;">snehalsarkar7</a>`,
             actions: `
@@ -1236,85 +1314,111 @@ document.addEventListener("DOMContentLoaded", function() {
         // 1. Greetings
         if (/^(hi|hello|hey|greetings|hola|namaste|sup|yo|good (morning|afternoon|evening))\b/.test(query) || query === 'hi' || query === 'hello') {
             return `👋 <strong>Hello! Nice to meet you!</strong><br><br>
-            I am Snehal Sarkar's interactive AI portfolio assistant. I can give you detailed information regarding Snehal's:
+            I'm Snehal Sarkar's official AI portfolio assistant. I can guide you through:
             <ul class="bot-list">
-                <li>🎓 Education & CGPA at UEM Jaipur</li>
-                <li>🛠️ Technical Skills & Full Stack Web/App stack</li>
-                <li>🚀 9 Featured Projects (Mobile Apps, AI Agents, Web3, IoT, E-Commerce, Web)</li>
-                <li>💼 Trainee Experience at Dronnester</li>
-                <li>🏆 Leadership Roles (Atrang VP, Toastmasters, HackSec)</li>
-                <li>📬 Contact & Hiring Information</li>
+                <li>💼 <strong>Career Vision & Pitch:</strong> The Hybrid Advantage (Tech + Business/HR/Strategy)</li>
+                <li>🛠️ <strong>Technical Toolkit:</strong> Full Stack, Solidity, IoT Sensors & AI Prompting</li>
+                <li>🚀 <strong>Key Projects:</strong> IoT Weather Station, Solidity Crowdfunding, UrbanNest, Monsoon Merchant</li>
+                <li>🧭 <strong>Journey & Adaptability:</strong> Kolkata ⇄ Jaipur growth & mindset</li>
+                <li>🏆 <strong>Leadership & Clubs:</strong> Atrang VP, Toastmasters, HackSec & Event Coordination</li>
+                <li>📜 <strong>Certifications:</strong> Coursera & LinkedIn Learning credentials</li>
+                <li>📬 <strong>Contact:</strong> Email, phone, LinkedIn & GitHub</li>
             </ul>
-            What would you like to explore?`;
+            What would you like to know more about?`;
         }
 
-        // 2. Who is Snehal / About / Intro
-        if (query.includes("who is") || query.includes("who are you") || query.includes("about snehal") || query.includes("introduce") || query.includes("tell me about") || query.includes("bio") || query.includes("overview") || query.includes("profile")) {
-            return knowledgeBase.about.text + knowledgeBase.about.actions;
+        // 2. Career Vision / Business Edge / Pitch / Why Hire / Aspirations / HR / Strategy / Business Analyst
+        if (query.includes("career") || query.includes("vision") || query.includes("business") || query.includes("analyst") || query.includes("associate") || query.includes("strategist") || query.includes("hr") || query.includes("human resource") || query.includes("pitch") || query.includes("value proposition") || query.includes("why hire") || query.includes("goal") || query.includes("growth") || query.includes("hybrid") || query.includes("non-technical") || query.includes("strategic")) {
+            return knowledgeBase.career_vision.text + knowledgeBase.career_vision.actions;
         }
 
-        // 3. Civic Issue Reporter / Flutter / Mobile App / APK
-        if (query.includes("civic") || query.includes("issue reporter") || query.includes("pothole") || query.includes("apk") || query.includes("mobile app") || query.includes("android app") || (query.includes("flutter") && !query.includes("skill"))) {
-            return knowledgeBase.civic.text + knowledgeBase.civic.actions;
+        // 3. Personal Journey / Kolkata to Jaipur / Travel / Adaptability Mindset
+        if (query.includes("journey") || query.includes("adapt") || query.includes("adaptability") || query.includes("mindset") || query.includes("kolkata") || query.includes("relocate") || query.includes("travel") || query.includes("change") || query.includes("challenges") || query.includes("personality") || query.includes("background")) {
+            return knowledgeBase.journey_adaptability.text + knowledgeBase.journey_adaptability.actions;
         }
 
-        // 3. Tech Stack / Skills / Languages
-        if (query.includes("skill") || query.includes("stack") || query.includes("tech") || query.includes("programming") || query.includes("language") || query.includes("python") || query.includes("java") || query.includes("react") || query.includes("flutter") || query.includes("javascript") || query.includes("mongodb") || query.includes("frontend") || query.includes("backend") || query.includes("tools")) {
+        // 4. Tech Stack / Skills / Toolkit / Languages / Frameworks
+        if ((query.includes("skill") || query.includes("stack") || query.includes("toolkit") || query.includes("tech") || query.includes("programming") || query.includes("language") || query.includes("python") || query.includes("java") || query.includes("react") || query.includes("javascript") || query.includes("dart") || query.includes("c++") || query.includes("mongodb") || query.includes("frontend") || query.includes("backend") || query.includes("tools")) && !query.includes("weather") && !query.includes("bme280") && !query.includes("mq-135") && !query.includes("veml6070")) {
             return knowledgeBase.skills.text + knowledgeBase.skills.actions;
         }
 
-        // 4. AI & Agents (Agentic AI)
-        if (query.includes("agentic") || query.includes("agent") || query.includes("ai platform") || query.includes("llm") || (query.includes("ai") && !query.includes("email") && !query.includes("atrang"))) {
-            return knowledgeBase.ai.text + knowledgeBase.ai.actions;
+        // 5. Certifications / Coursera / LinkedIn Learning / Certificates
+        if (query.includes("certification") || query.includes("certificate") || query.includes("coursera") || query.includes("linkedin learning") || query.includes("aptitude") || query.includes("operating systems fundamentals") || query.includes("business ethics") || query.includes("soft skills for creative")) {
+            return knowledgeBase.certifications.text + knowledgeBase.certifications.actions;
         }
 
-        // 5. Blockchain / Web3 / Solidity / Ethereum / Clarity / Move / NFT Royalty
-        if (query.includes("blockchain") || query.includes("web3") || query.includes("solidity") || query.includes("ethereum") || query.includes("smart contract") || query.includes("crypto") || query.includes("crowdfunding") || query.includes("transparent funding") || query.includes("digital twin") || query.includes("royalty") || query.includes("clarity") || query.includes("stacks") || query.includes("move") || query.includes("nft")) {
-            return knowledgeBase.blockchain.text + knowledgeBase.blockchain.actions;
-        }
-
-        // 6. IoT / Weather / ESP32 / Hardware
-        if (query.includes("iot") || query.includes("weather") || query.includes("esp32") || query.includes("hardware") || query.includes("sensor") || query.includes("bme280") || query.includes("mq-135") || query.includes("microcontroller") || query.includes("hyperlocal") || query.includes("arduino")) {
+        // 6. IoT Weather Monitoring / ESP32 / Sensors (BME280, VEML6070, MQ-135) / Hardware
+        if (query.includes("weather") || query.includes("hyperlocal") || query.includes("esp32") || query.includes("bme280") || query.includes("veml6070") || query.includes("mq-135") || query.includes("sensor") || (query.includes("iot") && !query.includes("career")) || query.includes("hardware")) {
             return knowledgeBase.iot.text + knowledgeBase.iot.actions;
         }
 
-        // 7. Web Apps / Scraping / UrbanNest / E-Commerce / Store / Web-Fetch
-        if (query.includes("urbannest") || query.includes("store") || query.includes("ecommerce") || query.includes("e-commerce") || query.includes("lifestyle") || query.includes("furniture") || query.includes("decor") || query.includes("web-fetch") || query.includes("fetch") || query.includes("scraping") || query.includes("data engine")) {
-            return knowledgeBase.web.text + knowledgeBase.web.actions;
+        // 6. Blockchain / Transparent Funding / Solidity / Ethereum / Smart Contracts
+        if (query.includes("blockchain") || query.includes("solidity") || query.includes("ethereum") || query.includes("smart contract") || query.includes("crowdfunding") || query.includes("funding") || query.includes("transparent")) {
+            return knowledgeBase.blockchain.text + knowledgeBase.blockchain.actions;
         }
 
-        // 8. Projects (General)
-        if (query.includes("project") || query.includes("built") || query.includes("portfolio") || query.includes("work") || query.includes("github repos")) {
+        // 7. UrbanNest / n8n / Chatbot Hackathon
+        if (query.includes("urbannest") || query.includes("n8n") || query.includes("hackathon")) {
+            return knowledgeBase.urbannest.text + knowledgeBase.urbannest.actions;
+        }
+
+        // 8. Monsoon Merchant / Game
+        if (query.includes("monsoon") || query.includes("merchant") || query.includes("strategy game") || query.includes("3d browser")) {
+            return knowledgeBase.monsoon_merchant.text + knowledgeBase.monsoon_merchant.actions;
+        }
+
+        // 9. Civic Issue Reporter / Flutter / Mobile App / APK
+        if (query.includes("civic") || query.includes("issue reporter") || query.includes("pothole") || query.includes("apk") || query.includes("hive")) {
+            return knowledgeBase.civic.text + knowledgeBase.civic.actions;
+        }
+
+        // 10. AI Prompt Engineering / Google Veo / Flow / Emerging Tech
+        if (query.includes("veo") || query.includes("flow") || query.includes("prompt engineering") || query.includes("emerging") || query.includes("video generation")) {
+            return `🎬 <strong>AI Prompt Engineering & Emerging Tech:</strong><br><br>
+            Snehal is proficient in modern <strong>AI Prompt Engineering</strong>, utilizing advanced tools like <span class="bot-highlight">Google Veo & Flow</span> for multi-scene video generation, rapid prototype iteration, and creative AI multimedia production.<br><br>
+            He also actively applies prompt pipelining and agentic orchestration within software workflows.
+            <div class="bot-actions">
+                <a href="#skills" class="bot-btn">Explore Skills Section ↓</a>
+            </div>`;
+        }
+
+        // 11. Tech Stack / Skills / Languages
+        if (query.includes("skill") || query.includes("stack") || query.includes("tech") || query.includes("programming") || query.includes("language") || query.includes("python") || query.includes("java") || query.includes("react") || query.includes("flutter") || query.includes("javascript") || query.includes("dart") || query.includes("c++") || query.includes("mongodb") || query.includes("frontend") || query.includes("backend") || query.includes("tools")) {
+            return knowledgeBase.skills.text + knowledgeBase.skills.actions;
+        }
+
+        // 12. Who is Snehal / About / Intro
+        if (query.includes("who is") || query.includes("who are you") || query.includes("about snehal") || query.includes("introduce") || query.includes("tell me about snehal") || query.includes("bio") || query.includes("overview") || query.includes("profile")) {
+            return knowledgeBase.about.text + knowledgeBase.about.actions;
+        }
+
+        // 13. Projects (General)
+        if (query.includes("project") || query.includes("built") || query.includes("portfolio work") || query.includes("github repos")) {
             return knowledgeBase.projects.text + knowledgeBase.projects.actions;
         }
 
-        // 9. Experience / Internship / Dronnester / Job
-        if (query.includes("experience") || query.includes("internship") || query.includes("dronnester") || query.includes("trainee") || query.includes("job") || query.includes("career") || query.includes("work experience") || query.includes("drone")) {
+        // 14. Leadership / Clubs / Atrang / Toastmasters / HackSec / Events / Pixel Ki Paheli / UFL
+        if (query.includes("leadership") || query.includes("club") || query.includes("atrang") || query.includes("vice president") || query.includes("vp") || query.includes("toastmaster") || query.includes("toastmasters") || query.includes("hark master") || query.includes("bit mesra") || query.includes("hacksec") || query.includes("public speaking") || query.includes("public relation") || query.includes("event") || query.includes("pixel ki paheli") || query.includes("football") || query.includes("ufl") || query.includes("extracurricular")) {
+            return knowledgeBase.leadership.text + knowledgeBase.leadership.actions;
+        }
+
+        // 15. Experience / Internship / Dronnester / Job
+        if (query.includes("experience") || query.includes("internship") || query.includes("dronnester") || query.includes("trainee") || query.includes("job") || query.includes("work experience") || query.includes("drone")) {
             return knowledgeBase.experience.text + knowledgeBase.experience.actions;
         }
 
-        // 10. Education / CGPA / College / Degree / School
+        // 16. Education / CGPA / College / Degree / School / UEM Jaipur
         if (query.includes("education") || query.includes("college") || query.includes("university") || query.includes("uem") || query.includes("jaipur") || query.includes("bca") || query.includes("cgpa") || query.includes("gpa") || query.includes("marks") || query.includes("grade") || query.includes("degree") || query.includes("school") || query.includes("isc") || query.includes("icse")) {
             return knowledgeBase.education.text + knowledgeBase.education.actions;
         }
 
-        // 11. Leadership / Clubs / Atrang / Toastmasters / HackSec / Events
-        if (query.includes("leadership") || query.includes("club") || query.includes("atrang") || query.includes("vice president") || query.includes("vp") || query.includes("toastmaster") || query.includes("hacksec") || query.includes("public speaking") || query.includes("event") || query.includes("pixel ki paheli") || query.includes("football") || query.includes("extracurricular") || query.includes("hackathon")) {
-            return knowledgeBase.leadership.text + knowledgeBase.leadership.actions;
-        }
-
-        // 12. Contact / Hire / Resume / Email / Phone / Location / Socials
-        if (query.includes("contact") || query.includes("hire") || query.includes("email") || query.includes("mail") || query.includes("phone") || query.includes("call") || query.includes("resume") || query.includes("cv") || query.includes("linkedin") || query.includes("github") || query.includes("reach") || query.includes("kolkata") || query.includes("address") || query.includes("location")) {
+        // 17. Contact / Hire / Resume / Email / Phone / Location / Socials / LinkedIn / GitHub
+        if (query.includes("contact") || query.includes("hire") || query.includes("email") || query.includes("mail") || query.includes("phone") || query.includes("call") || query.includes("resume") || query.includes("cv") || query.includes("linkedin") || query.includes("github") || query.includes("reach") || query.includes("number")) {
             return knowledgeBase.contact.text + knowledgeBase.contact.actions;
         }
 
-        // 13. Languages spoken / Personal / Hobbies
-        if (query.includes("fluent") || query.includes("languages") || query.includes("speak") || query.includes("hobby") || query.includes("hobbies") || query.includes("personal") || query.includes("brother") || query.includes("family") || query.includes("ai video") || query.includes("interest")) {
-            return knowledgeBase.personal.text + knowledgeBase.personal.actions;
-        }
-
-        // 12. Dragon Game Easter Egg
-        if (query.includes("game") || query.includes("dragon") || query.includes("neon dragon") || query.includes("jump") || query.includes("play")) {
+        // 18. Dragon Game Easter Egg
+        if (query.includes("dragon") || query.includes("neon dragon") || query.includes("jump") || query.includes("play")) {
             return `🐲 <strong>Neon Dragon Runner:</strong><br><br>
             Snehal built an interactive retro canvas game right here on this portfolio! As you jump over obstacles and gain distance, you unlock real chronological milestones from Snehal's life and career.
             <div class="bot-actions">
@@ -1322,17 +1426,13 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>`;
         }
 
-        // 13. Smart Fallback with context guidance
-        return `🤖 <strong>I'd love to help you with that!</strong><br><br>
-        Here are the most popular topics you can ask me about Snehal:
-        <ul class="bot-list">
-            <li><strong>"What is Snehal's tech stack?"</strong> — Web, Mobile, IoT, Blockchain</li>
-            <li><strong>"Tell me about Snehal's projects"</strong> — IoT Weather Station & Solidity Crowdfunding</li>
-            <li><strong>"What is Snehal's education & CGPA?"</strong> — BCA at UEM Jaipur (7.80 CGPA)</li>
-            <li><strong>"Tell me about Dronnester"</strong> — Professional Trainee experience</li>
-            <li><strong>"What leadership roles does he hold?"</strong> — Atrang VP, Toastmasters, HackSec</li>
-            <li><strong>"How can I contact or hire Snehal?"</strong> — Email, phone, resume & socials</li>
-        </ul>
+        // 19. Handling Unanswered / Fallback Questions (Strict instruction compliant)
+        return `🤖 <strong>Hi there! I am Snehal's AI portfolio assistant.</strong><br><br>
+        That specific detail is currently outside my verified knowledge base. To ensure accurate information without making assumptions about Snehal's history or private life, I'd encourage you to reach out to Snehal directly:<br><br>
+        📧 <strong>Email:</strong> <a href="mailto:snehalsarkar94@gmail.com" style="color:var(--secondary); text-decoration:underline;">snehalsarkar94@gmail.com</a><br>
+        💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/snehal-sarkar-7773b7321/" target="_blank" style="color:var(--primary); text-decoration:underline;">Snehal Sarkar on LinkedIn</a><br>
+        📱 <strong>Phone:</strong> +91 8902515964<br><br>
+        <em>You can also ask me about Snehal's Career Vision, Technical & IoT Stack, Key Projects, Leadership roles, Toastmasters, and Certifications!</em>
         <div class="bot-actions">
             <a href="mailto:snehalsarkar94@gmail.com" class="bot-btn">Contact Snehal ✉️</a>
             <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">Download CV 📄</a>
@@ -1395,8 +1495,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Clear Conversation
     function resetChat() {
         chatMessages.innerHTML = "";
-        appendMessage("bot", `👋 <strong>Hi there! I'm Snehal's AI Assistant.</strong><br><br>
-        I'm here to answer any questions about Snehal's technical skills, full-stack projects, BCA at UEM Jaipur, Dronnester internship, leadership roles, and contact info.<br><br>
+        appendMessage("bot", `👋 <strong>Hi there! I'm Snehal's official AI Assistant.</strong><br><br>
+        Welcome to Snehal Sarkar's portfolio! I can assist you with details on his <strong>Career Vision & Strategic Edge</strong>, <strong>Technical & IoT Stack</strong>, <strong>Key Projects</strong>, <strong>BCA at UEM Jaipur</strong>, <strong>Leadership & Toastmasters</strong>, and <strong>Certifications</strong>.<br><br>
         <em>Click any suggestion below or type your question!</em>`);
     }
 
