@@ -30,443 +30,519 @@
     </nav>
 
     <main>
-    <header class="hero">
-        <div class="hero-content">
-            <div class="hero-image">
-                <img src="assets/hero-img.jpeg" alt="Profile" class="profile-pic">
-            </div>
-
-            <p class="greeting">👋 Hi, I'm Snehal Sarkar</p>
-
-            <h1 class="hero-title">
-                Passionate <span class="highlight">Web, App & IoT Developer</span> <span class="highlight">Creating
-                    Innovative Solutions
-                </span>
-            </h1>
-
-            <p class="hero-subtitle">
-                With active experience in both app and web development, along with a passion for building everything
-                from dynamic portfolios to integrated IoT systems, I bring dedication and creativity to every project.
-            </p>
-
-            <div class="role-box">
-                <a href="#about" class="arrow-btn">Explore Portfolio ↓</a>
-            </div>
-        </div>
-    </header>
-
-    <section id="about" class="split-section">
-        <div class="image-container left-accent">
-            <img src="assets/about-img.jpeg" alt="About Me">
-        </div>
-        <div class="text-container">
-            <h2 class="section-title">About Me</h2>
-            <p>Detail-oriented technology student actively building modern web and mobile applications while
-                maintaining high proficiency in data management and essential office tools. Highly adaptable and
-                creative, bringing additional strengths in multimedia editing to produce polished, user-focused
-                digital content. Seeking to apply my diverse technical toolkit and passion for continuous
-                improvement to drive efficiency and innovation in a competitive professional environment.</p>
-            <div class="btn-group">
-                <a href="#contact" class="btn-primary">Hire Me</a>
-                <a href="assets/SNEHAL_SARKAR_Resume.pdf" class="btn-outline" target="_blank">View CV</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="center-section">
-        <div class="projects-header-wrapper">
-            <div class="projects-title-row">
-                <div>
-                    <h2 class="section-title">Featured Projects</h2>
-                    <p class="section-subtitle-text">Explore my software engineering, AI agent architectures, Web3 smart contracts, IoT systems, and e-commerce platforms.</p>
+        <header class="hero">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="assets/hero-img.jpeg" alt="Profile" class="profile-pic">
                 </div>
-                <!-- Carousel Nav Buttons -->
-                <div class="carousel-nav-controls">
-                    <button class="carousel-nav-btn" id="project-scroll-left" aria-label="Scroll projects left" type="button">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+
+                <p class="greeting">👋 Hi, I'm Snehal Sarkar</p>
+
+                <h1 class="hero-title">
+                    Passionate <span class="highlight">Web, App & IoT Developer</span> <span class="highlight">Creating
+                        Innovative Solutions
+                    </span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    With active experience in both app and web development, along with a passion for building everything
+                    from dynamic portfolios to integrated IoT systems, I bring dedication and creativity to every
+                    project.
+                </p>
+
+                <div class="role-box">
+                    <a href="#about" class="arrow-btn">Explore Portfolio ↓</a>
+                </div>
+            </div>
+        </header>
+
+        <section id="about" class="split-section">
+            <div class="image-container left-accent">
+                <img src="assets/about-img.jpeg" alt="About Me">
+            </div>
+            <div class="text-container">
+                <h2 class="section-title">About Me</h2>
+                <p>Detail-oriented technology student actively building modern web and mobile applications while
+                    maintaining high proficiency in data management and essential office tools. Highly adaptable and
+                    creative, bringing additional strengths in multimedia editing to produce polished, user-focused
+                    digital content. Seeking to apply my diverse technical toolkit and passion for continuous
+                    improvement to drive efficiency and innovation in a competitive professional environment.</p>
+                <div class="btn-group">
+                    <a href="#contact" class="btn-primary">Hire Me</a>
+                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" class="btn-outline" target="_blank">View CV</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="center-section">
+            <div class="projects-header-wrapper">
+                <div class="projects-title-row">
+                    <div>
+                        <h2 class="section-title">Featured Projects</h2>
+                        <p class="section-subtitle-text">Explore my software engineering, AI agent architectures, Web3
+                            smart contracts, IoT systems, and e-commerce platforms.</p>
+                    </div>
+                    <!-- Carousel Nav Buttons -->
+                    <div class="carousel-nav-controls">
+                        <button class="carousel-nav-btn" id="project-scroll-left" aria-label="Scroll projects left"
+                            type="button">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <button class="carousel-nav-btn" id="project-scroll-right" aria-label="Scroll projects right"
+                            type="button">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Category Filter Tabs -->
+                <div class="project-filters" role="tablist" aria-label="Project Category Filters">
+                    <button class="project-filter-btn active" data-filter="all" type="button" role="tab"
+                        aria-selected="true">
+                        <span>All Projects</span>
+                        <span class="filter-count">9</span>
                     </button>
-                    <button class="carousel-nav-btn" id="project-scroll-right" aria-label="Scroll projects right" type="button">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+                    <button class="project-filter-btn" data-filter="ai" type="button" role="tab" aria-selected="false">
+                        <span>AI & Agents</span>
+                        <span class="filter-count">1</span>
+                    </button>
+                    <button class="project-filter-btn" data-filter="web3" type="button" role="tab"
+                        aria-selected="false">
+                        <span>Web3 & Blockchain</span>
+                        <span class="filter-count">3</span>
+                    </button>
+                    <button class="project-filter-btn" data-filter="iot" type="button" role="tab" aria-selected="false">
+                        <span>IoT & Hardware</span>
+                        <span class="filter-count">1</span>
+                    </button>
+                    <button class="project-filter-btn" data-filter="web" type="button" role="tab" aria-selected="false">
+                        <span>Web & Apps</span>
+                        <span class="filter-count">4</span>
                     </button>
                 </div>
             </div>
-            
-            <!-- Interactive Category Filter Tabs -->
-            <div class="project-filters" role="tablist" aria-label="Project Category Filters">
-                <button class="project-filter-btn active" data-filter="all" type="button" role="tab" aria-selected="true">
-                    <span>All Projects</span>
-                    <span class="filter-count">9</span>
-                </button>
-                <button class="project-filter-btn" data-filter="ai" type="button" role="tab" aria-selected="false">
-                    <span>AI & Agents</span>
-                    <span class="filter-count">1</span>
-                </button>
-                <button class="project-filter-btn" data-filter="web3" type="button" role="tab" aria-selected="false">
-                    <span>Web3 & Blockchain</span>
-                    <span class="filter-count">3</span>
-                </button>
-                <button class="project-filter-btn" data-filter="iot" type="button" role="tab" aria-selected="false">
-                    <span>IoT & Hardware</span>
-                    <span class="filter-count">1</span>
-                </button>
-                <button class="project-filter-btn" data-filter="web" type="button" role="tab" aria-selected="false">
-                    <span>Web & Apps</span>
-                    <span class="filter-count">4</span>
-                </button>
-            </div>
-        </div>
 
-        <!-- Horizontal Scrollable Panel -->
-        <div class="project-carousel-wrapper">
-            <div class="project-grid horizontal-track" id="projects-grid">
-                <!-- 1. Civic Issue Reporter (Flutter Mobile App) -->
-                <div class="project-card" data-category="web">
-                    <div class="p-img"><img src="assets/project9.jpg" alt="Civic Issue Reporter Mobile App" loading="lazy"></div>
-                    <div class="p-badge mobile-badge">Flutter / Mobile App</div>
-                    <div class="p-info">
-                        <div class="p-meta">
-                            <span class="p-tag">Flutter & Dart</span>
-                            <span class="p-tag">Hive / GPS / Maps</span>
+            <!-- Horizontal Scrollable Panel -->
+            <div class="project-carousel-wrapper">
+                <div class="project-grid horizontal-track" id="projects-grid">
+                    <!-- 1. Civic Issue Reporter (Flutter Mobile App) -->
+                    <div class="project-card" data-category="web">
+                        <div class="p-img"><img src="assets/project9.jpg" alt="Civic Issue Reporter Mobile App"
+                                loading="lazy"></div>
+                        <div class="p-badge mobile-badge">Flutter / Mobile App</div>
+                        <div class="p-info">
+                            <div class="p-meta">
+                                <span class="p-tag">Flutter & Dart</span>
+                                <span class="p-tag">Hive / GPS / Maps</span>
+                            </div>
+                            <h3>CIVIC ISSUE REPORTER</h3>
+                            <p class="p-summary">Production-grade mobile application empowering citizens to report
+                                potholes, damaged roads, and public hazards with GPS geocoding, offline Hive storage,
+                                and APK release.</p>
+                            <div class="p-actions">
+                                <a href="https://github.com/snehalsarkar7/Civic_Issue_Reporter" target="_blank"
+                                    rel="noopener noreferrer" class="p-btn"
+                                    aria-label="View Civic Issue Reporter Repository">
+                                    <span>GitHub Code</span>
+                                    <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                    </svg>
+                                </a>
+                                <a href="https://github.com/snehalsarkar7/Civic_Issue_Reporter/raw/main/releases/app-release.apk"
+                                    target="_blank" rel="noopener noreferrer" class="p-btn"
+                                    aria-label="Download Android APK">
+                                    <span>Get APK</span>
+                                    <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
-                        <h3>CIVIC ISSUE REPORTER</h3>
-                        <p class="p-summary">Production-grade mobile application empowering citizens to report potholes, damaged roads, and public hazards with GPS geocoding, offline Hive storage, and APK release.</p>
-                        <div class="p-actions">
-                            <a href="https://github.com/snehalsarkar7/Civic_Issue_Reporter" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View Civic Issue Reporter Repository">
-                                <span>GitHub Code</span>
-                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                            </a>
-                            <a href="https://github.com/snehalsarkar7/Civic_Issue_Reporter/raw/main/releases/app-release.apk" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="Download Android APK">
-                                <span>Get APK</span>
-                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                            </a>
+                    </div>
+
+                    <!-- 2. Agentic AI -->
+                    <div class="project-card" data-category="ai">
+                        <div class="p-img"><img src="assets/project4.jpg" alt="Agentic AI Platform" loading="lazy">
+                        </div>
+                        <div class="p-badge ai-badge">AI & Agents</div>
+                        <div class="p-info">
+                            <div class="p-meta">
+                                <span class="p-tag">AI Workflows</span>
+                                <span class="p-tag">JavaScript</span>
+                            </div>
+                            <h3>AGENTIC AI PLATFORM</h3>
+                            <p class="p-summary">Autonomous agent framework orchestrating multi-step AI workflows,
+                                real-time reasoning, and intelligent tool execution.</p>
+                            <div class="p-actions">
+                                <a href="https://github.com/snehalsarkar7/Agentic_Ai" target="_blank"
+                                    rel="noopener noreferrer" class="p-btn" aria-label="View Agentic AI Repository">
+                                    <span>GitHub Code</span>
+                                    <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. HyperLocal IoT Weather -->
+                    <div class="project-card" data-category="iot">
+                        <div class="p-img"><img src="assets/project1.jpeg" alt="HyperLocal Weather Station"
+                                loading="lazy"></div>
+                        <div class="p-badge iot-badge">IoT & Hardware</div>
+                        <div class="p-info">
+                            <div class="p-meta">
+                                <span class="p-tag">ESP32 / Dart</span>
+                                <span class="p-tag">BME280 & MQ-135</span>
+                            </div>
+                            <h3>HYPERLOCAL WEATHER STATION</h3>
+                            <p class="p-summary">Real-time environmental telemetry node measuring microclimate
+                                temperature, barometric pressure, humidity, and air quality.</p>
+                            <div class="p-actions">
+                                <a href="https://github.com/snehalsarkar7/HyperLocal" target="_blank"
+                                    rel="noopener noreferrer" class="p-btn" aria-label="View HyperLocal Repository">
+                                    <span>GitHub Code</span>
+                                    <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. NFT Transparent Funding -->
+                    <div class="project-card" data-category="web3">
+                        <div class="p-img"><img src="assets/project2.png" alt="NFT Transparent Funding" loading="lazy">
+                        </div>
+                        <div class="p-badge web3-badge">Web3 / Solidity</div>
+                        <div class="p-info">
+                            <div class="p-meta">
+                                <span class="p-tag">Solidity</span>
+                                <span class="p-tag">Ethereum Smart Escrow</span>
+                            </div>
+                            <h3>NFT TRANSPARENT FUNDING</h3>
+                            <p class="p-summary">Decentralized Web3 crowdfunding protocol ensuring milestone-based
+                                escrow disbursement and tamper-proof ledger validation.</p>
+                            <div class="p-actions">
+                                <a href="https://github.com/snehalsarkar7/transparentFunding.sol" target="_blank"
+                                    rel="noopener noreferrer" class="p-btn"
+                                    aria-label="View Transparent Funding Repository">
+                                    <span>GitHub Code</span>
+                                    <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Digital Twin Smart Contract -->
+                    <div class="project-card" data-category="web3">
+                        <div class="p-img"><img src="assets/project3.png" alt="Digital Twin Smart Contract"
+                                loading="lazy"></div>
+                        <div class="p-badge web3-badge">Move / Blockchain</div>
+                        <div class="p-info">
+                            <div class="p-meta">
+                                <span class="p-tag">Move Language</span>
+                                <span class="p-tag">Digital Twins</span>
+                            </div>
+                            <h3>DIGITAL TWIN SMART CONTRACT</h3>
+                            <p class="p-summary">Blockchain state synchronization framework binding physical asset
+                                telemetry to immutable on-chain digital twin tokens.</p>
+                            <div class="p-actions">
+                                <a href="https://github.com/snehalsarkar7/DigitalTwin" target="_blank"
+                                    rel="noopener noreferrer" class="p-btn" aria-label="View Digital Twin Repository">
+                                    <span>GitHub Code</span>
+                                    <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. NFT Royalty System -->
+                    <div class="project-card" data-category="web3">
+                        <div class="p-img"><img src="assets/project6.jpg" alt="NFT Royalty System" loading="lazy"></div>
+                        <div class="p-badge web3-badge">Clarity / Stacks</div>
+                        <div class="p-info">
+                            <div class="p-meta">
+                                <span class="p-tag">Clarity</span>
+                                <span class="p-tag">Bitcoin Stacks L2</span>
+                            </div>
+                            <h3>NFT ROYALTY MONETIZATION</h3>
+                            <p class="p-summary">Smart contract protocol enforcing automated secondary market royalty
+                                revenue distribution for digital creators on Stacks.</p>
+                            <div class="p-actions">
+                                <a href="https://github.com/snehalsarkar7/NFT-Royalty-System" target="_blank"
+                                    rel="noopener noreferrer" class="p-btn"
+                                    aria-label="View NFT Royalty System Repository">
+                                    <span>GitHub Code</span>
+                                    <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Web-Fetch Engine -->
+                    <div class="project-card" data-category="web">
+                        <div class="p-img"><img src="assets/project5.jpg" alt="Web-Fetch Data Engine" loading="lazy">
+                        </div>
+                        <div class="p-badge web-badge">Data Engine</div>
+                        <div class="p-info">
+                            <div class="p-meta">
+                                <span class="p-tag">JavaScript</span>
+                                <span class="p-tag">HTTP APIs / Scraping</span>
+                            </div>
+                            <h3>WEB-FETCH DATA ENGINE</h3>
+                            <p class="p-summary">High-throughput asynchronous web harvesting and extraction engine with
+                                intelligent schema parsing and rate control.</p>
+                            <div class="p-actions">
+                                <a href="https://github.com/snehalsarkar7/Web-Fetch" target="_blank"
+                                    rel="noopener noreferrer" class="p-btn" aria-label="View Web-Fetch Repository">
+                                    <span>GitHub Code</span>
+                                    <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. UrbanNest - Home Lifestyle Store -->
+                    <div class="project-card" data-category="web">
+                        <div class="p-img"><img src="assets/project7.jpg" alt="UrbanNest Home Lifestyle Store"
+                                loading="lazy"></div>
+                        <div class="p-badge lifestyle-badge">Home & Lifestyle Store</div>
+                        <div class="p-info">
+                            <div class="p-meta">
+                                <span class="p-tag">E-Commerce</span>
+                                <span class="p-tag">Home & Decor</span>
+                            </div>
+                            <h3>URBANNEST LIFESTYLE STORE</h3>
+                            <p class="p-summary">Modern e-commerce platform and curated home lifestyle store featuring
+                                premium interior decor collections, furniture catalog, and shopping cart checkout.</p>
+                            <div class="p-actions">
+                                <a href="https://github.com/snehalsarkar7/UrbanNest" target="_blank"
+                                    rel="noopener noreferrer" class="p-btn" aria-label="View UrbanNest Repository">
+                                    <span>GitHub Code</span>
+                                    <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. Developer Portfolio -->
+                    <div class="project-card" data-category="web">
+                        <div class="p-img"><img src="assets/project8.jpg" alt="Developer Portfolio" loading="lazy">
+                        </div>
+                        <div class="p-badge web-badge">Creative Dev</div>
+                        <div class="p-info">
+                            <div class="p-meta">
+                                <span class="p-tag">JavaScript</span>
+                                <span class="p-tag">3D Vanta & AI Bot</span>
+                            </div>
+                            <h3>CYBER DEVELOPER PORTFOLIO</h3>
+                            <p class="p-summary">High-performance cyber-themed developer portfolio featuring 3D ambient
+                                dynamics, an interactive AI assistant, and retro game milestones.</p>
+                            <div class="p-actions">
+                                <a href="https://github.com/snehalsarkar7/my_portfolio" target="_blank"
+                                    rel="noopener noreferrer" class="p-btn" aria-label="View Portfolio Repository">
+                                    <span>GitHub Code</span>
+                                    <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2. Agentic AI -->
-                <div class="project-card" data-category="ai">
-                    <div class="p-img"><img src="assets/project4.jpg" alt="Agentic AI Platform" loading="lazy"></div>
-                    <div class="p-badge ai-badge">AI & Agents</div>
-                    <div class="p-info">
-                        <div class="p-meta">
-                            <span class="p-tag">AI Workflows</span>
-                            <span class="p-tag">JavaScript</span>
-                        </div>
-                        <h3>AGENTIC AI PLATFORM</h3>
-                        <p class="p-summary">Autonomous agent framework orchestrating multi-step AI workflows, real-time reasoning, and intelligent tool execution.</p>
-                        <div class="p-actions">
-                            <a href="https://github.com/snehalsarkar7/Agentic_Ai" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View Agentic AI Repository">
-                                <span>GitHub Code</span>
-                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                            </a>
-                        </div>
+                <!-- Horizontal Scroll Progress & Indicators -->
+                <div class="project-carousel-footer">
+                    <div class="project-scroll-progress-container">
+                        <div class="project-scroll-progress-bar" id="project-progress-bar"></div>
                     </div>
-                </div>
-
-                <!-- 2. HyperLocal IoT Weather -->
-                <div class="project-card" data-category="iot">
-                    <div class="p-img"><img src="assets/project1.jpeg" alt="HyperLocal Weather Station" loading="lazy"></div>
-                    <div class="p-badge iot-badge">IoT & Hardware</div>
-                    <div class="p-info">
-                        <div class="p-meta">
-                            <span class="p-tag">ESP32 / Dart</span>
-                            <span class="p-tag">BME280 & MQ-135</span>
-                        </div>
-                        <h3>HYPERLOCAL WEATHER STATION</h3>
-                        <p class="p-summary">Real-time environmental telemetry node measuring microclimate temperature, barometric pressure, humidity, and air quality.</p>
-                        <div class="p-actions">
-                            <a href="https://github.com/snehalsarkar7/HyperLocal" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View HyperLocal Repository">
-                                <span>GitHub Code</span>
-                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. NFT Transparent Funding -->
-                <div class="project-card" data-category="web3">
-                    <div class="p-img"><img src="assets/project2.png" alt="NFT Transparent Funding" loading="lazy"></div>
-                    <div class="p-badge web3-badge">Web3 / Solidity</div>
-                    <div class="p-info">
-                        <div class="p-meta">
-                            <span class="p-tag">Solidity</span>
-                            <span class="p-tag">Ethereum Smart Escrow</span>
-                        </div>
-                        <h3>NFT TRANSPARENT FUNDING</h3>
-                        <p class="p-summary">Decentralized Web3 crowdfunding protocol ensuring milestone-based escrow disbursement and tamper-proof ledger validation.</p>
-                        <div class="p-actions">
-                            <a href="https://github.com/snehalsarkar7/transparentFunding.sol" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View Transparent Funding Repository">
-                                <span>GitHub Code</span>
-                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. Digital Twin Smart Contract -->
-                <div class="project-card" data-category="web3">
-                    <div class="p-img"><img src="assets/project3.png" alt="Digital Twin Smart Contract" loading="lazy"></div>
-                    <div class="p-badge web3-badge">Move / Blockchain</div>
-                    <div class="p-info">
-                        <div class="p-meta">
-                            <span class="p-tag">Move Language</span>
-                            <span class="p-tag">Digital Twins</span>
-                        </div>
-                        <h3>DIGITAL TWIN SMART CONTRACT</h3>
-                        <p class="p-summary">Blockchain state synchronization framework binding physical asset telemetry to immutable on-chain digital twin tokens.</p>
-                        <div class="p-actions">
-                            <a href="https://github.com/snehalsarkar7/DigitalTwin" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View Digital Twin Repository">
-                                <span>GitHub Code</span>
-                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5. NFT Royalty System -->
-                <div class="project-card" data-category="web3">
-                    <div class="p-img"><img src="assets/project6.jpg" alt="NFT Royalty System" loading="lazy"></div>
-                    <div class="p-badge web3-badge">Clarity / Stacks</div>
-                    <div class="p-info">
-                        <div class="p-meta">
-                            <span class="p-tag">Clarity</span>
-                            <span class="p-tag">Bitcoin Stacks L2</span>
-                        </div>
-                        <h3>NFT ROYALTY MONETIZATION</h3>
-                        <p class="p-summary">Smart contract protocol enforcing automated secondary market royalty revenue distribution for digital creators on Stacks.</p>
-                        <div class="p-actions">
-                            <a href="https://github.com/snehalsarkar7/NFT-Royalty-System" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View NFT Royalty System Repository">
-                                <span>GitHub Code</span>
-                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. Web-Fetch Engine -->
-                <div class="project-card" data-category="web">
-                    <div class="p-img"><img src="assets/project5.jpg" alt="Web-Fetch Data Engine" loading="lazy"></div>
-                    <div class="p-badge web-badge">Data Engine</div>
-                    <div class="p-info">
-                        <div class="p-meta">
-                            <span class="p-tag">JavaScript</span>
-                            <span class="p-tag">HTTP APIs / Scraping</span>
-                        </div>
-                        <h3>WEB-FETCH DATA ENGINE</h3>
-                        <p class="p-summary">High-throughput asynchronous web harvesting and extraction engine with intelligent schema parsing and rate control.</p>
-                        <div class="p-actions">
-                            <a href="https://github.com/snehalsarkar7/Web-Fetch" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View Web-Fetch Repository">
-                                <span>GitHub Code</span>
-                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 7. UrbanNest - Home Lifestyle Store -->
-                <div class="project-card" data-category="web">
-                    <div class="p-img"><img src="assets/project7.jpg" alt="UrbanNest Home Lifestyle Store" loading="lazy"></div>
-                    <div class="p-badge lifestyle-badge">Home & Lifestyle Store</div>
-                    <div class="p-info">
-                        <div class="p-meta">
-                            <span class="p-tag">E-Commerce</span>
-                            <span class="p-tag">Home & Decor</span>
-                        </div>
-                        <h3>URBANNEST LIFESTYLE STORE</h3>
-                        <p class="p-summary">Modern e-commerce platform and curated home lifestyle store featuring premium interior decor collections, furniture catalog, and shopping cart checkout.</p>
-                        <div class="p-actions">
-                            <a href="https://github.com/snehalsarkar7/UrbanNest" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View UrbanNest Repository">
-                                <span>GitHub Code</span>
-                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 8. Developer Portfolio -->
-                <div class="project-card" data-category="web">
-                    <div class="p-img"><img src="assets/project8.jpg" alt="Developer Portfolio" loading="lazy"></div>
-                    <div class="p-badge web-badge">Creative Dev</div>
-                    <div class="p-info">
-                        <div class="p-meta">
-                            <span class="p-tag">JavaScript</span>
-                            <span class="p-tag">3D Vanta & AI Bot</span>
-                        </div>
-                        <h3>CYBER DEVELOPER PORTFOLIO</h3>
-                        <p class="p-summary">High-performance cyber-themed developer portfolio featuring 3D ambient dynamics, an interactive AI assistant, and retro game milestones.</p>
-                        <div class="p-actions">
-                            <a href="https://github.com/snehalsarkar7/my_portfolio" target="_blank" rel="noopener noreferrer" class="p-btn" aria-label="View Portfolio Repository">
-                                <span>GitHub Code</span>
-                                <svg class="p-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Horizontal Scroll Progress & Indicators -->
-            <div class="project-carousel-footer">
-                <div class="project-scroll-progress-container">
-                    <div class="project-scroll-progress-bar" id="project-progress-bar"></div>
-                </div>
-                <div class="project-scroll-hint">
-                    <span class="hint-icon">↔</span>
-                    <span>Scroll or drag horizontally to explore all projects</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="skills-section">
-        <div class="skills-inner">
-            <h2 class="section-title">My skills</h2>
-            <h3 class="section-subtitle">Technical Skills</h3>
-            <p class="mb-30">I am a dedicated BCA student specializing in application design and development.</p>
-
-            <div class="technical-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <img src="assets/python.svg" alt="Python" class="skill-svg">
-                    </div>
-                    <div class="skill-label">Python</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <img src="assets/java.svg" alt="Java" class="skill-svg">
-                    </div>
-                    <div class="skill-label">Java</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <img src="assets/html.svg" alt="HTML" class="skill-svg">
-                    </div>
-                    <div class="skill-label">HTML</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <img src="assets/css.svg" alt="CSS" class="skill-svg">
-                    </div>
-                    <div class="skill-label">CSS</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <img src="assets/js.svg" alt="JavaScript" class="skill-svg">
-                    </div>
-                    <div class="skill-label">JavaScript</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <img src="assets/microsoft.svg" alt="Microsoft Office" class="skill-svg">
-                    </div>
-                    <div class="skill-label">Microsoft Office</div>
-                </div>
-            </div>
-
-            <h3 class="soft-title">Soft Skills</h3>
-            <div class="soft-skills-panel">
-                <div class="soft-skills-list">
-                    <div class="soft-skill-item">
-                        <div class="soft-icon">🎤</div>
-                        <div class="soft-label">Public Speaking</div>
-                    </div>
-                    <div class="soft-skill-item">
-                        <div class="soft-icon">🤝</div>
-                        <div class="soft-label">Public Relations</div>
-                    </div>
-                    <div class="soft-skill-item">
-                        <div class="soft-icon">💬</div>
-                        <div class="soft-label">Communication</div>
-                    </div>
-                    <div class="soft-skill-item">
-                        <div class="soft-icon">📋</div>
-                        <div class="soft-label">Event Coordination</div>
+                    <div class="project-scroll-hint">
+                        <span class="hint-icon">↔</span>
+                        <span>Scroll or drag horizontally to explore all projects</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="timeline-journey" class="timeline-section">
-        <h2 class="section-title">Timeline Journey</h2>
-        <p class="section-subtitle">Play to unlock my milestones!</p>
-        <p class="section-desc mb-30">Press Spacebar, Up Arrow, or Tap/Click the game canvas to jump over the obstacles. As you progress, you will unlock chronological milestones of my journey.</p>
-        
-        <div class="journey-container">
-            <!-- Game Panel -->
-            <div class="game-panel glass-card">
-                <div class="game-header">
-                    <div class="game-title">🐲 NEON DRAGON RUNNER</div>
-                    <div class="game-scores">
-                        <span class="score-label">Score: <strong id="game-score">0</strong>m</span>
-                        <span class="score-label ml-15">High: <strong id="game-highscore">0</strong>m</span>
+        <section id="skills" class="skills-section">
+            <div class="skills-inner">
+                <h2 class="section-title">My skills</h2>
+                <h3 class="section-subtitle">Technical Skills</h3>
+                <p class="mb-30">I am a dedicated BCA student specializing in application design and development.</p>
+
+                <div class="technical-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="assets/python.svg" alt="Python" class="skill-svg">
+                        </div>
+                        <div class="skill-label">Python</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="assets/java.svg" alt="Java" class="skill-svg">
+                        </div>
+                        <div class="skill-label">Java</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="assets/html.svg" alt="HTML" class="skill-svg">
+                        </div>
+                        <div class="skill-label">HTML</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="assets/css.svg" alt="CSS" class="skill-svg">
+                        </div>
+                        <div class="skill-label">CSS</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="assets/js.svg" alt="JavaScript" class="skill-svg">
+                        </div>
+                        <div class="skill-label">JavaScript</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="assets/microsoft.svg" alt="Microsoft Office" class="skill-svg">
+                        </div>
+                        <div class="skill-label">Microsoft Office</div>
                     </div>
                 </div>
-                
-                <div class="canvas-container" id="canvas-container">
-                    <canvas id="dragon-game" width="650" height="250"></canvas>
-                    <div class="game-overlay animate-fade-in" id="game-overlay">
-                        <div class="overlay-content">
-                            <div class="overlay-icon">🐲</div>
-                            <h3>NEON DRAGON JOURNEY</h3>
-                            <p class="overlay-instruction">Press SPACEBAR or CLICK canvas to Jump</p>
-                            <button id="start-btn" class="btn-primary">Start Journey</button>
+
+                <h3 class="soft-title">Soft Skills</h3>
+                <div class="soft-skills-panel">
+                    <div class="soft-skills-list">
+                        <div class="soft-skill-item">
+                            <div class="soft-icon">🎤</div>
+                            <div class="soft-label">Public Speaking</div>
+                        </div>
+                        <div class="soft-skill-item">
+                            <div class="soft-icon">🤝</div>
+                            <div class="soft-label">Public Relations</div>
+                        </div>
+                        <div class="soft-skill-item">
+                            <div class="soft-icon">💬</div>
+                            <div class="soft-label">Communication</div>
+                        </div>
+                        <div class="soft-skill-item">
+                            <div class="soft-icon">📋</div>
+                            <div class="soft-label">Event Coordination</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="game-controls">
-                    <span class="controls-hint">Controls: <kbd>Space</kbd> / <kbd>▲</kbd> / <kbd>Click</kbd></span>
-                    <button id="mute-btn" class="btn-mute" aria-label="Toggle Sound">🔊 Sound On</button>
-                </div>
             </div>
+        </section>
 
-            <!-- Timeline Panel -->
-            <div class="timeline-panel glass-card">
-                <h3 class="panel-title">Completed Milestones</h3>
-                <div id="timeline-complete-banner" class="timeline-complete-banner hidden">
-                    <span class="banner-icon">🏆</span>
-                    <p class="banner-text">Timeline Complete. Level: Unlocked. Still running to conquer every goal ahead.</p>
-                </div>
-                <div class="timeline-track-wrapper">
-                    <div class="timeline-line">
-                        <div class="timeline-progress-bar" id="timeline-progress-bar"></div>
+        <section id="timeline-journey" class="timeline-section">
+            <h2 class="section-title">Timeline Journey</h2>
+            <p class="section-subtitle">Play to unlock my milestones!</p>
+            <p class="section-desc mb-30">Press Spacebar, Up Arrow, or Tap/Click the game canvas to jump over the
+                obstacles. As you progress, you will unlock chronological milestones of my journey.</p>
+
+            <div class="journey-container">
+                <!-- Game Panel -->
+                <div class="game-panel glass-card">
+                    <div class="game-header">
+                        <div class="game-title">🐲 NEON DRAGON RUNNER</div>
+                        <div class="game-scores">
+                            <span class="score-label">Score: <strong id="game-score">0</strong>m</span>
+                            <span class="score-label ml-15">High: <strong id="game-highscore">0</strong>m</span>
+                        </div>
                     </div>
-                    <div class="timeline-nodes" id="timeline-nodes">
-                        <!-- Populated by JS -->
+
+                    <div class="canvas-container" id="canvas-container">
+                        <canvas id="dragon-game" width="650" height="250"></canvas>
+                        <div class="game-overlay animate-fade-in" id="game-overlay">
+                            <div class="overlay-content">
+                                <div class="overlay-icon">🐲</div>
+                                <h3>NEON DRAGON JOURNEY</h3>
+                                <p class="overlay-instruction">Press SPACEBAR or CLICK canvas to Jump</p>
+                                <button id="start-btn" class="btn-primary">Start Journey</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-controls">
+                        <span class="controls-hint">Controls: <kbd>Space</kbd> / <kbd>▲</kbd> / <kbd>Click</kbd></span>
+                        <button id="mute-btn" class="btn-mute" aria-label="Toggle Sound">🔊 Sound On</button>
+                    </div>
+                </div>
+
+                <!-- Timeline Panel -->
+                <div class="timeline-panel glass-card">
+                    <h3 class="panel-title">Completed Milestones</h3>
+                    <div id="timeline-complete-banner" class="timeline-complete-banner hidden">
+                        <span class="banner-icon">🏆</span>
+                        <p class="banner-text">Timeline Complete. Level: Unlocked. Still running to conquer every goal
+                            ahead.</p>
+                    </div>
+                    <div class="timeline-track-wrapper">
+                        <div class="timeline-line">
+                            <div class="timeline-progress-bar" id="timeline-progress-bar"></div>
+                        </div>
+                        <div class="timeline-nodes" id="timeline-nodes">
+                            <!-- Populated by JS -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="split-section">
-        <div class="image-container left-accent">
-            <img src="assets/contact-img.png" alt="Contact">
-        </div>
-        <div class="text-container">
-            <h2 class="section-title">Contact <br> Details</h2>
-            <div class="contact-list">
-                <div class="c-item">
-                    <span class="c-label">Phone :</span>
-                    <span class="c-value">+91 8902515964</span>
-                </div>
-                <div class="c-item">
-                    <span class="c-label">Mail :</span>
-                    <span class="c-value">snehalsarkar94@gmail.com</span>
-                </div>
-                <div class="c-item">
-                    <span class="c-label">LinkedIn :</span>
-                    <span class="c-value"><a href="https://www.linkedin.com/in/snehal-sarkar-7773b7321/"
-                            style="color: white; text-decoration: none;" target="_blank">Snehal Sarkar</a></span>
-                </div>
-                <div class="c-item">
-                    <span class="c-label">GitHub :</span>
-                    <span class="c-value"><a href="https://github.com/snehalsarkar7"
-                            style="color: white; text-decoration: none;" target="_blank">snehalsarkar7</a></span>
+        <section id="contact" class="split-section">
+            <div class="image-container left-accent">
+                <img src="assets/contact-img.png" alt="Contact">
+            </div>
+            <div class="text-container">
+                <h2 class="section-title">Contact <br> Details</h2>
+                <div class="contact-list">
+                    <div class="c-item">
+                        <span class="c-label">Phone :</span>
+                        <span class="c-value">+91 8902515964</span>
+                    </div>
+                    <div class="c-item">
+                        <span class="c-label">Mail :</span>
+                        <span class="c-value">snehalsarkar94@gmail.com</span>
+                    </div>
+                    <div class="c-item">
+                        <span class="c-label">LinkedIn :</span>
+                        <span class="c-value"><a href="https://www.linkedin.com/in/snehal-sarkar-7773b7321/"
+                                style="color: white; text-decoration: none;" target="_blank">Snehal Sarkar</a></span>
+                    </div>
+                    <div class="c-item">
+                        <span class="c-label">GitHub :</span>
+                        <span class="c-value"><a href="https://github.com/snehalsarkar7"
+                                style="color: white; text-decoration: none;" target="_blank">snehalsarkar7</a></span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -475,10 +551,12 @@
             <div class="footer-top-grid">
                 <div class="footer-brand">
                     <div class="footer-logo">SNEHAL SARKAR<span>.</span></div>
-                    <p class="footer-tagline">Passionate Web, App & IoT Developer building innovative solutions with modern stacks and interactive experiences.</p>
+                    <p class="footer-tagline">Passionate Web, App & IoT Developer building innovative solutions with
+                        modern stacks and interactive experiences.</p>
                     <div class="footer-cta-group">
                         <a href="#contact" class="btn-primary">Hire Me</a>
-                        <a href="assets/SNEHAL_SARKAR_Resume.pdf" class="btn-outline" target="_blank">Download CV</a>
+                        <a href="assets/Snehal_Sarkar_FlowCV_Resume_2026-07-20.pdf" class="btn-outline"
+                            target="_blank">Download CV</a>
                     </div>
                 </div>
 
@@ -487,10 +565,13 @@
                     <h3 class="social-title">Let's Connect</h3>
                     <p class="social-subtitle">Find me across the web on these platforms:</p>
                     <div class="social-buttons-grid">
-                        <a href="https://www.linkedin.com/in/snehal-sarkar-7773b7321/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin-btn" aria-label="Snehal's LinkedIn Profile">
+                        <a href="https://www.linkedin.com/in/snehal-sarkar-7773b7321/" target="_blank"
+                            rel="noopener noreferrer" class="social-btn linkedin-btn"
+                            aria-label="Snehal's LinkedIn Profile">
                             <div class="social-icon">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z"/>
+                                    <path
+                                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z" />
                                 </svg>
                             </div>
                             <div class="social-meta">
@@ -500,9 +581,11 @@
                             <span class="social-arrow">↗</span>
                         </a>
 
-                        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-btn insta-btn" aria-label="Snehal's Instagram Profile">
+                        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"
+                            class="social-btn insta-btn" aria-label="Snehal's Instagram Profile">
                             <div class="social-icon">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -515,10 +598,12 @@
                             <span class="social-arrow">↗</span>
                         </a>
 
-                        <a href="https://github.com/snehalsarkar7" target="_blank" rel="noopener noreferrer" class="social-btn github-btn" aria-label="Snehal's GitHub Profile">
+                        <a href="https://github.com/snehalsarkar7" target="_blank" rel="noopener noreferrer"
+                            class="social-btn github-btn" aria-label="Snehal's GitHub Profile">
                             <div class="social-icon">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                                 </svg>
                             </div>
                             <div class="social-meta">
@@ -550,7 +635,8 @@
     <!-- ================= CHATBOT WIDGET ================= -->
     <div class="chatbot-container" id="chatbot-container">
         <!-- Chatbot Window -->
-        <div class="chat-window hidden" id="chat-window" role="dialog" aria-label="Snehal Sarkar AI Assistant" aria-modal="false">
+        <div class="chat-window hidden" id="chat-window" role="dialog" aria-label="Snehal Sarkar AI Assistant"
+            aria-modal="false">
             <!-- Window Header -->
             <div class="chat-header">
                 <div class="chat-header-info">
@@ -564,11 +650,21 @@
                     </div>
                 </div>
                 <div class="chat-header-actions">
-                    <button class="chat-action-btn" id="chat-clear-btn" title="Clear conversation" aria-label="Clear chat">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+                    <button class="chat-action-btn" id="chat-clear-btn" title="Clear conversation"
+                        aria-label="Clear chat">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 6h18"></path>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                        </svg>
                     </button>
                     <button class="chat-action-btn" id="chat-close-btn" title="Close chat" aria-label="Close chat">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -581,20 +677,35 @@
             <!-- Suggestion Quick Chips -->
             <div class="chat-suggestions" id="chat-suggestions">
                 <button class="suggestion-chip" data-query="Who is Snehal Sarkar?">👋 About Snehal</button>
-                <button class="suggestion-chip" data-query="What is Snehal's career vision and business value proposition?">💼 Career Vision & Pitch</button>
-                <button class="suggestion-chip" data-query="What is Snehal's technical toolkit and hardware skills?">🛠️ Tech & IoT Stack</button>
-                <button class="suggestion-chip" data-query="Tell me about Snehal's key projects">🚀 Key Projects</button>
-                <button class="suggestion-chip" data-query="Tell me about Snehal's journey between Kolkata and Jaipur and his adaptability mindset">🧭 Journey & Adaptability</button>
-                <button class="suggestion-chip" data-query="What leadership roles and Toastmasters experience does Snehal have?">🏆 Leadership & Toastmasters</button>
-                <button class="suggestion-chip" data-query="What certifications has Snehal earned?">📜 Certifications</button>
+                <button class="suggestion-chip"
+                    data-query="What is Snehal's career vision and business value proposition?">💼 Career Vision &
+                    Pitch</button>
+                <button class="suggestion-chip" data-query="What is Snehal's technical toolkit and hardware skills?">🛠️
+                    Tech & IoT Stack</button>
+                <button class="suggestion-chip" data-query="Tell me about Snehal's key projects">🚀 Key
+                    Projects</button>
+                <button class="suggestion-chip"
+                    data-query="Tell me about Snehal's journey between Kolkata and Jaipur and his adaptability mindset">🧭
+                    Journey & Adaptability</button>
+                <button class="suggestion-chip"
+                    data-query="What leadership roles and Toastmasters experience does Snehal have?">🏆 Leadership &
+                    Toastmasters</button>
+                <button class="suggestion-chip" data-query="What certifications has Snehal earned?">📜
+                    Certifications</button>
                 <button class="suggestion-chip" data-query="How can I contact or reach Snehal?">📬 Contact Info</button>
             </div>
 
             <!-- Input Bar -->
             <form class="chat-input-form" id="chat-input-form">
-                <input type="text" id="chat-input" class="chat-input" placeholder="Ask about skills, projects, college..." autocomplete="off" aria-label="Type your message">
+                <input type="text" id="chat-input" class="chat-input"
+                    placeholder="Ask about skills, projects, college..." autocomplete="off"
+                    aria-label="Type your message">
                 <button type="submit" class="chat-send-btn" id="chat-send-btn" aria-label="Send message">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
                 </button>
             </form>
         </div>
@@ -606,10 +717,17 @@
             </div>
             <button class="chat-fab" id="chat-fab" aria-label="Open AI chat widget" aria-expanded="false">
                 <div class="fab-icon-chat">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
                 </div>
                 <div class="fab-icon-close">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
                 </div>
                 <span class="fab-pulse"></span>
             </button>
