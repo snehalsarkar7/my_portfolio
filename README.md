@@ -150,8 +150,9 @@ The AI chatbot embedded in this portfolio acts as an interactive resume assistan
 * **Stack:** Flutter, Dart, Android SDK, iOS, Hive NoSQL, Google Maps SDK, GPS Geocoding, Material 3.
 * **Description:** Production-quality cross-platform mobile app enabling citizens to report civic infrastructure issues (potholes, streetlights, garbage, water leaks) with offline-first Hive storage, 5-step report wizard, and direct Android APK download.
 
-### 2. [Agentic AI Platform](https://github.com/snehalsarkar7/Agentic_Ai)
+### 2. [Agentic AI Platform](https://agentic-ai-xaoj.onrender.com/) — [GitHub](https://github.com/snehalsarkar7/Agentic_Ai)
 * **Stack:** AI Agents, LLM Orchestration, JavaScript, Automation Pipelines.
+* **Live Demo:** [agentic-ai-xaoj.onrender.com](https://agentic-ai-xaoj.onrender.com/)
 * **Description:** Autonomous agent framework executing multi-step workflows, tool-augmented reasoning, and dynamic task delegation.
 
 ### 3. [HyperLocal Weather Monitoring System](https://github.com/snehalsarkar7/HyperLocal)
@@ -170,12 +171,14 @@ The AI chatbot embedded in this portfolio acts as an interactive resume assistan
 * **Stack:** Clarity, Stacks Blockchain, Bitcoin L2, Smart Contracts.
 * **Description:** Automated secondary market royalty enforcement contract on Clarity ensuring guaranteed revenue distribution for digital creators.
 
-### 7. [Web-Fetch Data Engine](https://github.com/snehalsarkar7/Web-Fetch)
+### 7. [Web-Fetch Data Engine](https://web-fetch-om6w.onrender.com/) — [GitHub](https://github.com/snehalsarkar7/Web-Fetch)
 * **Stack:** JavaScript, Node.js, Async HTTP Pipeline, Scraping & Extraction.
+* **Live Demo:** [web-fetch-om6w.onrender.com](https://web-fetch-om6w.onrender.com/)
 * **Description:** High-throughput asynchronous web harvesting and extraction engine with intelligent schema parsing and rate limiting.
 
-### 8. [UrbanNest Home Lifestyle Store](https://github.com/snehalsarkar7/UrbanNest)
+### 8. [UrbanNest Home Lifestyle Store](https://urbannest-11qd.onrender.com/) — [GitHub](https://github.com/snehalsarkar7/UrbanNest)
 * **Stack:** JavaScript, HTML5/CSS3, E-Commerce, Responsive Web UI.
+* **Live Demo:** [urbannest-11qd.onrender.com](https://urbannest-11qd.onrender.com/)
 * **Description:** Modern e-commerce web platform and curated home lifestyle store featuring minimalist interior collections, furniture catalog, and shopping cart checkout.
 
 ### 9. [Cyber-Themed Interactive Portfolio](https://github.com/snehalsarkar7/my_portfolio)

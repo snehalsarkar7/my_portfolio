@@ -1201,6 +1201,7 @@ Value Proposition (How to pitch him): If a user or recruiter asks about his care
             </ul>`,
             actions: `
                 <div class="bot-actions">
+                    <a href="https://urbannest-11qd.onrender.com/" target="_blank" class="bot-btn">Live Store ↗</a>
                     <a href="https://github.com/snehalsarkar7/UrbanNest" target="_blank" class="bot-btn teal">UrbanNest Repo ↗</a>
                 </div>
             `
