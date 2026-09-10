@@ -201,7 +201,7 @@ my_portfolio/
 │   ├── project7.jpg              # UrbanNest housing platform preview
 │   ├── project8.jpg              # Cyber developer portfolio preview
 │   ├── project9.jpg              # Civic Issue Reporter mobile app preview
-│   ├── SNEHAL_SARKAR_Resume.pdf  # Downloadable PDF Resume
+│   ├── Snehal_Sarkar_FlowCV_Resume_2026-07-20.pdf  # Downloadable PDF Resume
 │   ├── python.svg                # Skill vector icons
 │   ├── java.svg
 │   ├── html.svg

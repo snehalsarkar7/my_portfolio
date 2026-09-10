@@ -1097,7 +1097,7 @@ Value Proposition (How to pitch him): If a user or recruiter asks about his care
             actions: `
                 <div class="bot-actions">
                     <a href="#about" class="bot-btn">Read Full Bio ↓</a>
-                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">📄 View Resume</a>
+                    <a href="assets/Snehal_Sarkar_FlowCV_Resume_2026-07-20.pdf" target="_blank" class="bot-btn teal">📄 View Resume</a>
                 </div>
             `
         },
@@ -1115,7 +1115,7 @@ Value Proposition (How to pitch him): If a user or recruiter asks about his care
             actions: `
                 <div class="bot-actions">
                     <a href="#contact" class="bot-btn">Discuss Opportunities ↓</a>
-                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">📄 Download Resume</a>
+                    <a href="assets/Snehal_Sarkar_FlowCV_Resume_2026-07-20.pdf" target="_blank" class="bot-btn teal">📄 Download Resume</a>
                 </div>
             `
         },
@@ -1263,7 +1263,7 @@ Value Proposition (How to pitch him): If a user or recruiter asks about his care
             </ul>`,
             actions: `
                 <div class="bot-actions">
-                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">📄 View Resume Certifications</a>
+                    <a href="assets/Snehal_Sarkar_FlowCV_Resume_2026-07-20.pdf" target="_blank" class="bot-btn teal">📄 View Resume Certifications</a>
                 </div>
             `
         },
@@ -1274,7 +1274,7 @@ Value Proposition (How to pitch him): If a user or recruiter asks about his care
             Applied software development, drone systems programming, and technical problem-solving skills in a fast-paced technology environment.`,
             actions: `
                 <div class="bot-actions">
-                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">📄 Download Resume</a>
+                    <a href="assets/Snehal_Sarkar_FlowCV_Resume_2026-07-20.pdf" target="_blank" class="bot-btn teal">📄 Download Resume</a>
                 </div>
             `
         },
@@ -1301,7 +1301,7 @@ Value Proposition (How to pitch him): If a user or recruiter asks about his care
             actions: `
                 <div class="bot-actions">
                     <a href="mailto:snehalsarkar94@gmail.com" class="bot-btn">✉️ Send Email</a>
-                    <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">📄 Download Resume</a>
+                    <a href="assets/Snehal_Sarkar_FlowCV_Resume_2026-07-20.pdf" target="_blank" class="bot-btn teal">📄 Download Resume</a>
                 </div>
             `
         }
@@ -1435,7 +1435,7 @@ Value Proposition (How to pitch him): If a user or recruiter asks about his care
         <em>You can also ask me about Snehal's Career Vision, Technical & IoT Stack, Key Projects, Leadership roles, Toastmasters, and Certifications!</em>
         <div class="bot-actions">
             <a href="mailto:snehalsarkar94@gmail.com" class="bot-btn">Contact Snehal ✉️</a>
-            <a href="assets/SNEHAL_SARKAR_Resume.pdf" target="_blank" class="bot-btn teal">Download CV 📄</a>
+            <a href="assets/Snehal_Sarkar_FlowCV_Resume_2026-07-20.pdf" target="_blank" class="bot-btn teal">Download CV 📄</a>
         </div>`;
     }
 
