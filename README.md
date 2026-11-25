@@ -274,6 +274,7 @@ This project has zero build step requirements and is ready for instant 1-click d
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Snehal_Sarkar-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/snehal-sarkar-7773b7321/)
 [![GitHub](https://img.shields.io/badge/GitHub-snehalsarkar7-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/snehalsarkar7)
+[![X](https://img.shields.io/badge/X-@snehalsarkar94-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/snehalsarkar94)
 [![Email](https://img.shields.io/badge/Email-snehalsarkar94@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:snehalsarkar94@gmail.com)
 [![Phone](https://img.shields.io/badge/Phone-+91_8902515964-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](tel:+918902515964)
 

@@ -1298,7 +1298,8 @@ Value Proposition (How to pitch him): If a user or recruiter asks about his care
             📱 <strong>Phone:</strong> <a href="tel:+918902515964" style="color:var(--text-main); text-decoration:underline;">+91 8902515964</a><br>
             📍 <strong>Location:</strong> Kolkata, West Bengal (Academics at UEM Jaipur)<br>
             💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/snehal-sarkar-7773b7321/" target="_blank" style="color:var(--primary); text-decoration:underline;">Snehal Sarkar</a><br>
-            🐙 <strong>GitHub:</strong> <a href="https://github.com/snehalsarkar7" target="_blank" style="color:var(--primary); text-decoration:underline;">snehalsarkar7</a>`,
+            🐙 <strong>GitHub:</strong> <a href="https://github.com/snehalsarkar7" target="_blank" style="color:var(--primary); text-decoration:underline;">snehalsarkar7</a><br>
+            ✖️ <strong>X (Twitter):</strong> <a href="https://x.com/snehalsarkar94" target="_blank" style="color:var(--text-main); text-decoration:underline;">@snehalsarkar94</a>`,
             actions: `
                 <div class="bot-actions">
                     <a href="mailto:snehalsarkar94@gmail.com" class="bot-btn">✉️ Send Email</a>
@@ -1413,8 +1414,8 @@ Value Proposition (How to pitch him): If a user or recruiter asks about his care
             return knowledgeBase.education.text + knowledgeBase.education.actions;
         }
 
-        // 17. Contact / Hire / Resume / Email / Phone / Location / Socials / LinkedIn / GitHub
-        if (query.includes("contact") || query.includes("hire") || query.includes("email") || query.includes("mail") || query.includes("phone") || query.includes("call") || query.includes("resume") || query.includes("cv") || query.includes("linkedin") || query.includes("github") || query.includes("reach") || query.includes("number")) {
+        // 17. Contact / Hire / Resume / Email / Phone / Location / Socials / LinkedIn / GitHub / X / Twitter
+        if (query.includes("contact") || query.includes("hire") || query.includes("email") || query.includes("mail") || query.includes("phone") || query.includes("call") || query.includes("resume") || query.includes("cv") || query.includes("linkedin") || query.includes("github") || query.includes("twitter") || query.includes("x.com") || query.includes("social") || query.includes("reach") || query.includes("number")) {
             return knowledgeBase.contact.text + knowledgeBase.contact.actions;
         }
 

@@ -1178,6 +1178,25 @@ nav {
     transform: translate(3px, -3px);
 }
 
+.social-btn.x-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateX(6px) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
+}
+
+.social-btn.x-btn:hover .social-icon {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: scale(1.08) rotate(-3deg);
+}
+
+.social-btn.x-btn:hover .social-arrow {
+    color: #ffffff;
+    transform: translate(3px, -3px);
+}
+
 /* Footer Bottom Bar */
 .footer-bottom {
     display: flex;
